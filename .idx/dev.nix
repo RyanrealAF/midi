@@ -6,7 +6,8 @@
 
   # Use https://search.nixos.org/packages to find packages
   packages = [
-    pkgs.nodejs_20
+    pkgs.nodejs_20,
+    pkgs.nodePackages.http-server
   ];
 
   # Sets environment variables in the workspace
@@ -21,7 +22,7 @@
       "ms-azuretools.vscode-docker",
       "mutantdino.resourcemonitor",
       "redhat.vscode-yaml",
-      "swellaby.vscode-rust-test-adapter"
+      "bradlc.vscode-tailwindcss"
     ];
 
     # Enable previews
@@ -29,11 +30,19 @@
       enable = true;
       previews = {
         web = {
-          command = ["npx", "http-server", "-p", "$PORT"];
+          command = ["http-server", "-p", "$PORT", "dist"];
           manager = "web";
           env = {
             PORT = "$PORT";
           };
+        };
+        "web-root" = {
+          command = ["http-server", "-p", "$PORT"];
+          manager = "web";
+        };
+        "build-config" = {
+          command = ["http-server", "-p", "$PORT", "build_config.html"];
+          manager = "web";
         };
       };
     };
