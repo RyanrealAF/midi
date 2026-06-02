@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>StemForge - STEM_PROCESSOR_V1</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-low": "#1c1b1b",
+                    "background": "#131313",
+                    "tertiary-container": "#00d2fe",
+                    "surface-container-lowest": "#0e0e0e",
+                    "on-tertiary": "#003543",
+                    "error-container": "#93000a",
+                    "secondary-container": "#454747",
+                    "surface-variant": "#353534",
+                    "surface-tint": "#ffba38",
+                    "on-primary-fixed-variant": "#604100",
+                    "surface": "#131313",
+                    "secondary-fixed-dim": "#c6c6c6",
+                    "on-secondary-container": "#b5b5b5",
+                    "on-error": "#690005",
+                    "primary-fixed-dim": "#ffba38",
+                    "on-secondary-fixed-variant": "#454747",
+                    "tertiary": "#a4e7ff",
+                    "surface-container-high": "#2a2a2a",
+                    "outline-variant": "#514532",
+                    "secondary-fixed": "#e2e2e2",
+                    "on-tertiary-fixed-variant": "#004e60",
+                    "on-background": "#e5e2e1",
+                    "surface-bright": "#393939",
+                    "primary-fixed": "#ffdeac",
+                    "on-surface-variant": "#d6c4ac",
+                    "on-secondary-fixed": "#1a1c1c",
+                    "surface-dim": "#131313",
+                    "outline": "#9e8e78",
+                    "error": "#ffb4ab",
+                    "inverse-surface": "#e5e2e1",
+                    "tertiary-fixed": "#b5ebff",
+                    "inverse-on-surface": "#313030",
+                    "surface-container": "#201f1f",
+                    "tertiary-fixed-dim": "#43d6ff",
+                    "on-primary-fixed": "#281900",
+                    "on-primary-container": "#6b4900",
+                    "on-error-container": "#ffdad6",
+                    "surface-container-highest": "#353534",
+                    "primary": "#ffd79b",
+                    "on-secondary": "#2f3131",
+                    "secondary": "#c6c6c6",
+                    "on-tertiary-fixed": "#001f28",
+                    "on-primary": "#432c00",
+                    "primary-container": "#ffb300",
+                    "on-surface": "#e5e2e1",
+                    "on-tertiary-container": "#00566a",
+                    "inverse-primary": "#7e5700"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Space Grotesk"],
+                    "body": ["Inter"],
+                    "label": ["Space Grotesk"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .inner-shadow {
+            box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.6);
+        }
+        .vu-meter-gradient {
+            background: linear-gradient(to right, #00d2fe 0%, #00d2fe 70%, #ffb300 70%, #ffb300 90%, #ffb4ab 90%);
+        }
+        .brushed-metal {
+            background-image: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0) 50%, rgba(0,0,0,0.1) 100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary-container selection:text-on-primary-container overflow-hidden h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="bg-[#131313] text-[#FFB300] font-['Space_Grotesk'] tracking-wider uppercase text-sm w-full top-0 border-none bg-[#1c1c1c] shadow-[inset_0_1px_0_0_rgba(255,215,155,0.1)] flex justify-between items-center px-6 py-4 w-full z-50">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#FFB300]" data-icon="settings_input_component">settings_input_component</span>
+<h1 class="font-['Space_Grotesk'] font-bold text-[#FFB300] tracking-tighter text-lg">STEM_PROCESSOR_V1</h1>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex gap-8">
+<span class="text-[#FFB300] cursor-default">DECONSTRUCT</span>
+<span class="text-[#444444] hover:bg-[#252525] transition-colors px-2 cursor-pointer">TIMELINE</span>
+<span class="text-[#444444] hover:bg-[#252525] transition-colors px-2 cursor-pointer">LIBRARY</span>
+<span class="text-[#444444] hover:bg-[#252525] transition-colors px-2 cursor-pointer">CONSOLE</span>
+</div>
+<div class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center overflow-hidden border border-primary/20">
+<img alt="User Profile" data-alt="professional portrait of a sound engineer in a dark studio setting with warm amber backlighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBerTFYBVoW_ubtzEgVI40uElyi1mjUhoCRjueTZkEBb8L8S-ojlnb_4sQRM88RylpInedUYHbBtO_TsOHQFEqKgNtdkRqfU3iFgRGW4q7IiktJZSh3w_t0gjlw4CKVFQqNZlgWVckLdfeM79bz9DSDBBbWQ0eCndXok0WErFk9tw8Bn_bBHIk3Frn4K-l_ugDP0My6H1hUR6LrP-auapdR4jX_U24UR8zSr3J_EYWELfZ4WnY1AkKRRyWuRUJFjh4XbHQMvdlshA"/>
+</div>
+</div>
+</header>
+<!-- Main Content Layout -->
+<main class="flex-1 flex overflow-hidden">
+<!-- NavigationDrawer (Left) -->
+<aside class="hidden lg:flex flex-col p-6 w-72 bg-[#131313]/70 backdrop-blur-xl border-r border-[#FFB300]/15 shadow-[40px_0_40px_0_rgba(255,179,0,0.08)]">
+<div class="mb-10">
+<span class="text-[#FFB300] font-black font-['Space_Grotesk'] uppercase text-xs tracking-widest">PATCH_BAY</span>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-4 py-3 text-[#131313] bg-[#FFB300] font-bold rounded-sm transition-all duration-300 font-['Space_Grotesk'] uppercase text-xs" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="router">router</span>
+                    INPUT_ROUTING
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#FFB300] opacity-60 hover:bg-[#FFB300]/10 transition-all duration-300 font-['Space_Grotesk'] uppercase text-xs" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="psychology">psychology</span>
+                    AI_ENGINE_CONFIG
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#FFB300] opacity-60 hover:bg-[#FFB300]/10 transition-all duration-300 font-['Space_Grotesk'] uppercase text-xs" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="save_alt">save_alt</span>
+                    BITRATE_EXPORT
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#FFB300] opacity-60 hover:bg-[#FFB300]/10 transition-all duration-300 font-['Space_Grotesk'] uppercase text-xs" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="label_important">label_important</span>
+                    METADATA
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#FFB300] opacity-60 hover:bg-[#FFB300]/10 transition-all duration-300 font-['Space_Grotesk'] uppercase text-xs" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="terminal">terminal</span>
+                    SYSTEM_LOGS
+                </a>
+</nav>
+<div class="mt-auto pt-6 border-t border-[#FFB300]/10">
+<div class="bg-surface-container-lowest p-4 rounded-sm">
+<div class="flex justify-between items-center mb-2">
+<span class="text-[10px] text-primary/60 font-label">CPU_LOAD</span>
+<span class="text-[10px] text-primary font-bold">24%</span>
+</div>
+<div class="h-1 bg-surface-variant w-full overflow-hidden">
+<div class="h-full bg-primary w-[24%]"></div>
+</div>
+</div>
+</div>
+</aside>
+<!-- Central Processing Canvas -->
+<section class="flex-1 overflow-y-auto p-4 md:p-8 space-y-8 bg-surface-container-low">
+<!-- Waveform Engine Display -->
+<div class="relative bg-surface-container-lowest rounded-lg overflow-hidden border-l-2 border-primary shadow-2xl">
+<div class="p-4 border-b border-surface-variant flex justify-between items-center">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="equalizer">equalizer</span>
+<span class="font-label text-xs tracking-widest text-primary uppercase">SIGNAL_VISUALIZER_01</span>
+</div>
+<div class="text-[10px] text-primary/40 font-mono tracking-tighter">00:02:45:12 / 00:04:12:00</div>
+</div>
+<div class="h-48 relative flex items-center px-4 gap-[2px]">
+<!-- Waveform visualization -->
+<div class="w-1 h-12 bg-primary/20"></div>
+<div class="w-1 h-16 bg-primary/30"></div>
+<div class="w-1 h-24 bg-primary/40"></div>
+<div class="w-1 h-32 bg-primary/60"></div>
+<div class="w-1 h-20 bg-primary/40"></div>
+<div class="w-1 h-28 bg-primary/50"></div>
+<div class="w-1 h-40 bg-primary shadow-[0_0_10px_rgba(255,179,0,0.5)]"></div>
+<div class="w-1 h-32 bg-primary/80"></div>
+<div class="w-1 h-16 bg-primary/40"></div>
+<div class="w-1 h-24 bg-primary/60"></div>
+<div class="w-1 h-12 bg-primary/30"></div>
+<div class="w-1 h-8 bg-primary/20"></div>
+<div class="w-1 h-16 bg-primary/30"></div>
+<div class="w-1 h-24 bg-primary/40"></div>
+<div class="w-1 h-32 bg-primary/60"></div>
+<div class="w-1 h-40 bg-primary/40"></div>
+<div class="w-1 h-28 bg-primary/50"></div>
+<div class="w-1 h-44 bg-primary shadow-[0_0_10px_rgba(255,179,0,0.5)]"></div>
+<div class="w-1 h-32 bg-primary/80"></div>
+<div class="w-1 h-16 bg-primary/40"></div>
+<!-- Playhead -->
+<div class="absolute left-1/4 top-0 bottom-0 w-0.5 bg-primary/80 z-10 shadow-[0_0_15px_rgba(255,179,0,1)]"></div>
+<!-- Remaining simulated waves... -->
+<div class="flex-1 flex items-center gap-[2px] opacity-20">
+<div class="w-1 h-12 bg-on-surface"></div><div class="w-1 h-16 bg-on-surface"></div><div class="w-1 h-24 bg-on-surface"></div><div class="w-1 h-32 bg-on-surface"></div><div class="w-1 h-12 bg-on-surface"></div><div class="w-1 h-16 bg-on-surface"></div><div class="w-1 h-24 bg-on-surface"></div><div class="w-1 h-32 bg-on-surface"></div><div class="w-1 h-12 bg-on-surface"></div><div class="w-1 h-16 bg-on-surface"></div><div class="w-1 h-24 bg-on-surface"></div><div class="w-1 h-32 bg-on-surface"></div><div class="w-1 h-12 bg-on-surface"></div><div class="w-1 h-16 bg-on-surface"></div><div class="w-1 h-24 bg-on-surface"></div><div class="w-1 h-32 bg-on-surface"></div>
+</div>
+</div>
+</div>
+<!-- Precision Controls Section -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Stem Mixer Console (Left 8 Columns) -->
+<div class="md:col-span-8 bg-surface-container rounded-sm brushed-metal p-6 flex flex-col gap-8 shadow-xl">
+<div class="flex items-center justify-between">
+<h2 class="font-label text-sm uppercase tracking-[0.2em] text-primary">Stem_Mixer_Chassis</h2>
+<div class="flex gap-2">
+<div class="w-2 h-2 rounded-full bg-error animate-pulse shadow-[0_0_5px_#ffb4ab]"></div>
+<span class="text-[9px] font-label text-error uppercase">Live_Output</span>
+</div>
+</div>
+<div class="grid gap-4 h-80 grid-cols-5">
+<!-- Channel: Vocals -->
+<div class="flex flex-col items-center bg-surface-container-lowest py-6 rounded-sm gap-4 border-b border-surface-variant">
+<span class="text-[10px] font-label text-secondary tracking-widest uppercase">VOCALS</span>
+<div class="flex-1 w-6 bg-surface-container rounded-full relative group">
+<div class="absolute bottom-[45%] left-[-12px] right-[-12px] h-4 bg-primary-container rounded-sm shadow-lg cursor-pointer border border-primary flex items-center justify-center">
+<div class="w-4 h-[1px] bg-on-primary"></div>
+</div>
+<div class="absolute bottom-0 w-full h-[45%] bg-primary/10 rounded-full"></div>
+</div>
+<div class="flex gap-2">
+<button class="w-6 h-6 flex items-center justify-center bg-surface-container text-[10px] font-bold text-primary border border-primary/10 hover:bg-primary hover:text-background transition-colors">M</button>
+<button class="w-6 h-6 flex items-center justify-center bg-surface-container text-[10px] font-bold text-primary-container border border-primary/10 hover:bg-primary-container hover:text-background transition-colors">S</button>
+</div>
+</div>
+<!-- Channel: Bass -->
+<div class="flex flex-col items-center bg-surface-container-lowest py-6 rounded-sm gap-4 border-b border-surface-variant">
+<span class="text-[10px] font-label text-secondary tracking-widest uppercase">BASS</span>
+<div class="flex-1 w-6 bg-surface-container rounded-full relative">
+<div class="absolute bottom-[65%] left-[-12px] right-[-12px] h-4 bg-primary-container rounded-sm shadow-lg cursor-pointer border border-primary flex items-center justify-center">
+<div class="w-4 h-[1px] bg-on-primary"></div>
+</div>
+<div class="absolute bottom-0 w-full h-[65%] bg-primary/10 rounded-full"></div>
+</div>
+<div class="flex gap-2">
+<button class="w-6 h-6 flex items-center justify-center bg-surface-container text-[10px] font-bold text-primary border border-primary/10">M</button>
+<button class="w-6 h-6 flex items-center justify-center bg-surface-container text-[10px] font-bold text-primary-container border border-primary/10">S</button>
+</div>
+</div><div class="flex flex-col items-center bg-surface-container-lowest py-6 rounded-sm gap-4 border-b border-surface-variant">
+<span class="text-[10px] font-label text-secondary tracking-widest uppercase">GUITAR</span>
+<div class="flex-1 w-6 bg-surface-container rounded-full relative group">
+<div class="absolute bottom-[55%] left-[-12px] right-[-12px] h-4 bg-green-500 rounded-sm shadow-lg cursor-pointer border border-green-600 flex items-center justify-center">
+<div class="w-4 h-[1px] bg-white"></div>
+</div>
+<div class="absolute bottom-0 w-full h-[55%] bg-green-500/10 rounded-full"></div>
+</div>
+<div class="flex gap-2">
+<button class="w-6 h-6 flex items-center justify-center bg-surface-container text-[10px] font-bold text-primary border border-primary/10 hover:bg-primary hover:text-background transition-colors">M</button>
+<button class="w-6 h-6 flex items-center justify-center bg-surface-container text-[10px] font-bold text-primary-container border border-primary/10 hover:bg-primary-container hover:text-background transition-colors">S</button>
+</div>
+</div>
+<!-- Channel: Other -->
+<div class="flex flex-col items-center bg-surface-container-lowest py-6 rounded-sm gap-4 border-b border-surface-variant">
+<span class="text-[10px] font-label text-secondary tracking-widest uppercase">OTHER</span>
+<div class="flex-1 w-6 bg-surface-container rounded-full relative">
+<div class="absolute bottom-[30%] left-[-12px] right-[-12px] h-4 bg-primary-container rounded-sm shadow-lg cursor-pointer border border-primary flex items-center justify-center">
+<div class="w-4 h-[1px] bg-on-primary"></div>
+</div>
+<div class="absolute bottom-0 w-full h-[30%] bg-primary/10 rounded-full"></div>
+</div>
+<div class="flex gap-2">
+<button class="w-6 h-6 flex items-center justify-center bg-surface-container text-[10px] font-bold text-primary border border-primary/10">M</button>
+<button class="w-6 h-6 flex items-center justify-center bg-surface-container text-[10px] font-bold text-primary-container border border-primary/10">S</button>
+</div>
+</div>
+<!-- Channel: Drums -->
+<div class="flex flex-col items-center bg-surface-container-lowest py-6 rounded-sm gap-4 border-b border-surface-variant">
+<span class="text-[10px] font-label text-secondary tracking-widest uppercase">DRUMS</span>
+<div class="flex-1 w-6 bg-surface-container rounded-full relative">
+<div class="absolute bottom-[80%] left-[-12px] right-[-12px] h-4 bg-primary-container rounded-sm shadow-lg cursor-pointer border border-primary flex items-center justify-center">
+<div class="w-4 h-[1px] bg-on-primary"></div>
+</div>
+<div class="absolute bottom-0 w-full h-[80%] bg-primary/10 rounded-full"></div>
+</div>
+<div class="flex gap-2">
+<button class="w-6 h-6 flex items-center justify-center bg-surface-container text-[10px] font-bold text-primary border border-primary/10">M</button>
+<button class="w-6 h-6 flex items-center justify-center bg-surface-container text-[10px] font-bold text-primary-container border border-primary/10">S</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Master & Transport (Right 4 Columns) -->
+<div class="md:col-span-4 flex flex-col gap-6">
+<!-- Transport Controls -->
+<div class="bg-surface-container rounded-sm p-6 flex flex-col gap-4 shadow-xl">
+<span class="text-[10px] font-label text-primary/40 tracking-[0.2em] uppercase">Transport_Unit</span>
+<div class="flex justify-between items-center bg-surface-container-lowest p-4 rounded-sm border-l-2 border-primary-fixed-dim">
+<button class="material-symbols-outlined text-secondary hover:text-primary transition-colors" data-icon="skip_previous">skip_previous</button>
+<button class="w-12 h-12 flex items-center justify-center bg-primary-container text-on-primary rounded-sm shadow-lg active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-2xl" data-icon="play_arrow" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+<button class="material-symbols-outlined text-secondary hover:text-primary transition-colors" data-icon="skip_next">skip_next</button>
+</div>
+<div class="flex justify-between items-center px-2">
+<button class="material-symbols-outlined text-sm text-secondary" data-icon="repeat">repeat</button>
+<button class="material-symbols-outlined text-sm text-secondary" data-icon="shuffle">shuffle</button>
+<button class="material-symbols-outlined text-sm text-secondary" data-icon="fiber_manual_record">fiber_manual_record</button>
+</div>
+</div>
+<!-- Master VU Meter -->
+<div class="flex-1 bg-surface-container rounded-sm p-6 flex flex-col gap-4 shadow-xl">
+<div class="flex justify-between items-center">
+<span class="text-[10px] font-label text-primary/40 tracking-[0.2em] uppercase">MASTER_PEAK</span>
+<span class="text-[10px] font-mono text-primary">-4.2 dB</span>
+</div>
+<div class="flex-1 flex gap-2">
+<div class="flex-1 flex flex-col-reverse bg-surface-container-lowest rounded-sm overflow-hidden p-[1px]">
+<div class="h-[75%] vu-meter-gradient w-full opacity-90"></div>
+</div>
+<div class="flex-1 flex flex-col-reverse bg-surface-container-lowest rounded-sm overflow-hidden p-[1px]">
+<div class="h-[72%] vu-meter-gradient w-full opacity-90"></div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container-lowest p-2 border-l border-primary/20">
+<div class="text-[8px] text-secondary font-label uppercase">In</div>
+<div class="text-xs text-on-background font-mono">-0.1dB</div>
+</div>
+<div class="bg-surface-container-lowest p-2 border-l border-error/20">
+<div class="text-[8px] text-secondary font-label uppercase">Clip</div>
+<div class="text-xs text-error font-mono">None</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- AI Engine Metadata / Status -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+<div class="bg-surface-container-lowest p-4 border-l-2 border-tertiary-container shadow-md">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-tertiary-container text-xs" data-icon="memory">memory</span>
+<span class="text-[9px] font-label text-secondary uppercase tracking-widest">Inference_Engine</span>
+</div>
+<div class="text-xs text-on-background font-mono">RT_STFT_PRO_4X</div>
+</div>
+<div class="bg-surface-container-lowest p-4 border-l-2 border-primary shadow-md">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-primary text-xs" data-icon="tune">tune</span>
+<span class="text-[9px] font-label text-secondary uppercase tracking-widest">Separation_Mode</span>
+</div>
+<div class="text-xs text-on-background font-mono">High_Fidelity_Auto</div>
+</div>
+<div class="bg-surface-container-lowest p-4 border-l-2 border-secondary shadow-md">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-secondary text-xs" data-icon="layers">layers</span>
+<span class="text-[9px] font-label text-secondary uppercase tracking-widest">Active_Layer</span>
+</div>
+<div class="text-xs text-on-background font-mono">Vocal_Isolation_V3</div>
+</div>
+<div class="bg-surface-container-lowest p-4 border-l-2 border-primary shadow-md">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-primary text-xs" data-icon="analytics">analytics</span>
+<span class="text-[9px] font-label text-secondary uppercase tracking-widest">Confidence_Score</span>
+</div>
+<div class="text-xs text-on-background font-mono">98.4% Accuracy</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center h-20 bg-[#131313] px-4 pb-2 md:hidden z-50">
+<a class="flex flex-col items-center justify-center text-[#FFB300] bg-[#252525] rounded-sm p-2 shadow-[inset_0_0_10px_rgba(255,179,0,0.1)] scale-95 transition-transform duration-100" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase font-bold tracking-[0.05em]">DECONSTRUCT</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#888888] p-2 hover:text-[#ffd79b] transition-transform duration-100" href="#">
+<span class="material-symbols-outlined" data-icon="tune">tune</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase font-bold tracking-[0.05em]">TIMELINE</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#888888] p-2 hover:text-[#ffd79b] transition-transform duration-100" href="#">
+<span class="material-symbols-outlined" data-icon="layers">layers</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase font-bold tracking-[0.05em]">LIBRARY</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#888888] p-2 hover:text-[#ffd79b] transition-transform duration-100" href="#">
+<span class="material-symbols-outlined" data-icon="memory">memory</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase font-bold tracking-[0.05em]">CONSOLE</span>
+</a>
+</nav>
+</body></html>
