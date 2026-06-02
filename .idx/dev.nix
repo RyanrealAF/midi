@@ -37,11 +37,23 @@
           };
         };
         "web-root" = {
-          command = ["http-server", "-p", "$PORT"];
+          command = ["http-server", "-p", "$PORT", "src"];
           manager = "web";
         };
         "build-config" = {
-          command = ["http-server", "-p", "$PORT", "build_config.html"];
+          command = ["http-server", "-p", "$PORT", "src/build_config.html"];
+          manager = "web";
+        };
+        "build-config-5stem" = {
+          command = ["http-server", "-p", "$PORT", "src/build_config_5stem.html"];
+          manager = "web";
+        };
+        "drum-isolation" = {
+          command = ["http-server", "-p", "$PORT", "src/drum_isolation.html"];
+          manager = "web";
+        };
+        "new-ui-concept" = {
+          command = ["http-server", "-p", "$PORT", "src/new_ui_concept.html"];
           manager = "web";
         };
       };
@@ -51,13 +63,11 @@
     workspace = {
       # Runs when a workspace is first created
       onCreate = {
-        # Example: install JS dependencies from NPM
-        # npm-install = "npm install";
+        npm-install = "npm install";
       };
       # Runs when the workspace is (re)started
       onStart = {
-        # Example: start a background task to watch and re-build backend code
-        # watch-backend = "npm run watch-backend";
+        build = "npm run build";
       };
     };
   };

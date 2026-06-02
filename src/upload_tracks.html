@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-container": "#003554",
+                        "on-surface-variant": "#e0c0b1",
+                        "on-background": "#e5e1e4",
+                        "on-error": "#690005",
+                        "primary-container": "#f97316",
+                        "primary-fixed-dim": "#ffb690",
+                        "inverse-surface": "#e5e1e4",
+                        "surface-container": "#201f22",
+                        "outline": "#a78b7d",
+                        "on-tertiary-fixed": "#001d32",
+                        "outline-variant": "#584237",
+                        "tertiary-fixed-dim": "#93ccff",
+                        "secondary-fixed-dim": "#adc6ff",
+                        "on-secondary": "#002e6a",
+                        "on-tertiary": "#003351",
+                        "on-surface": "#e5e1e4",
+                        "tertiary": "#93ccff",
+                        "on-primary-fixed-variant": "#783200",
+                        "surface": "#131315",
+                        "on-error-container": "#ffdad6",
+                        "on-secondary-fixed": "#001a42",
+                        "error": "#ffb4ab",
+                        "background": "#131315",
+                        "secondary": "#adc6ff",
+                        "surface-container-lowest": "#0e0e10",
+                        "inverse-primary": "#9d4300",
+                        "on-primary": "#552100",
+                        "on-primary-fixed": "#341100",
+                        "error-container": "#93000a",
+                        "inverse-on-surface": "#313032",
+                        "surface-variant": "#353437",
+                        "surface-dim": "#131315",
+                        "on-tertiary-fixed-variant": "#004b74",
+                        "secondary-container": "#0566d9",
+                        "tertiary-container": "#00a2f4",
+                        "surface-container-low": "#1c1b1d",
+                        "surface-bright": "#39393b",
+                        "on-secondary-container": "#e6ecff",
+                        "on-primary-container": "#582200",
+                        "on-secondary-fixed-variant": "#004395",
+                        "secondary-fixed": "#d8e2ff",
+                        "surface-container-high": "#2a2a2c",
+                        "surface-tint": "#ffb690",
+                        "primary-fixed": "#ffdbca",
+                        "tertiary-fixed": "#cde5ff",
+                        "primary": "#ffb690",
+                        "surface-container-highest": "#353437"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Manrope"],
+                        "label": ["Space Grotesk"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .grain-overlay {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.02;
+            pointer-events: none;
+        }
+        .ghost-border-tl {
+            border-top: 1px solid rgba(167, 139, 125, 0.15);
+            border-left: 1px solid rgba(167, 139, 125, 0.15);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+<div class="fixed inset-0 grain-overlay z-50"></div>
+<!-- TopAppBar -->
+<header class="bg-[#131315] flex justify-between items-center w-full px-6 py-4 fixed top-0 z-40">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-orange-500 text-3xl" data-icon="graphic_eq">graphic_eq</span>
+<h1 class="text-2xl font-bold tracking-tighter text-orange-500 font-headline">STEMFORGE</h1>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex gap-8 px-6">
+<span class="text-orange-500 font-label text-[12px] tracking-[0.2em] font-bold cursor-pointer">EXTRACT</span>
+<span class="text-zinc-400 font-label text-[12px] tracking-[0.2em] font-bold cursor-pointer hover:text-orange-400 transition-colors">MIXER</span>
+<span class="text-zinc-400 font-label text-[12px] tracking-[0.2em] font-bold cursor-pointer hover:text-orange-400 transition-colors">DRUMS</span>
+<span class="text-zinc-400 font-label text-[12px] tracking-[0.2em] font-bold cursor-pointer hover:text-orange-400 transition-colors">LIBRARY</span>
+</div>
+<div class="w-10 h-10 rounded-full overflow-hidden border border-outline-variant/30">
+<img class="w-full h-full object-cover" data-alt="professional male audio engineer portrait in a high-tech studio environment with soft blue ambient lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4AHY2UAH5KpPtuotWhV39EAhJr9AjRrIGsyltmcRkbx_NaS3uOQcoBcLF4aOmcyQOAPZK0gzwL8Yyj3NoLVP0shQ5H88tnYzo4Xr1aKz-GkMnh3M3rmx5D6UQSQp21YjKe3poGyCyJmZpPix2m_BFJimDiLDdIVOzAOVt31GHBDQhV4dRins2H1hBJVe2PABV87PLbDB8ENA0hLxzT25ZppX_4blfdish2C5JEU9d-UPPGZWQb7D-z2tgvK97ry51RTC0islEgA"/>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-32 px-6 max-w-7xl mx-auto min-h-screen">
+<!-- Hero Section / Drop Zone -->
+<section class="mt-8 mb-16 relative">
+<div class="grid lg:grid-cols-12 gap-8 items-center">
+<div class="lg:col-span-7 space-y-6">
+<div class="inline-block px-3 py-1 bg-primary-container/10 border border-primary-container/20 rounded-sm">
+<span class="text-[10px] font-bold tracking-[0.3em] text-primary font-label uppercase">Tactical AI Splitting</span>
+</div>
+<h2 class="text-5xl md:text-7xl font-bold font-headline leading-none tracking-tight">
+                        UNFORGE YOUR <span class="text-primary">SOUND.</span>
+</h2>
+<p class="text-on-surface-variant max-w-lg text-lg leading-relaxed">
+                        Studio-grade stem isolation powered by advanced neural architectures. Drag your tracks into the console to begin extraction.
+                    </p>
+</div>
+<div class="lg:col-span-5">
+<!-- The Upload Console -->
+<div class="bg-surface-container-low p-1 ghost-border-tl rounded-lg shadow-2xl">
+<div class="bg-surface-container-highest/40 border-2 border-dashed border-outline-variant/40 rounded-lg p-12 flex flex-col items-center justify-center text-center space-y-6 transition-all hover:bg-surface-container-highest/60 group">
+<div class="w-20 h-20 rounded-full bg-surface-container-lowest flex items-center justify-center shadow-inner relative overflow-hidden">
+<div class="absolute inset-0 bg-primary/5 group-hover:bg-primary/10 transition-colors"></div>
+<span class="material-symbols-outlined text-primary text-4xl" data-icon="cloud_upload">cloud_upload</span>
+</div>
+<div class="space-y-2">
+<h3 class="text-xl font-bold font-headline uppercase tracking-wider">Load Track</h3>
+<p class="text-label-sm text-zinc-500 font-label tracking-wide">WAV, MP3, FLAC (MAX 50MB)</p>
+</div>
+<button class="bg-primary-container text-on-primary-container px-8 py-4 font-bold font-label tracking-widest text-sm rounded-sm hover:shadow-[0_0_20px_rgba(249,115,22,0.4)] active:scale-95 transition-all">
+                                BROWSE FILES
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Recent Tracks - Bento Grid Pattern -->
+<section class="space-y-8">
+<div class="flex items-end justify-between border-b border-outline-variant/10 pb-4">
+<div class="space-y-1">
+<span class="text-[10px] font-bold font-label tracking-[0.4em] text-zinc-500 uppercase">Archive</span>
+<h3 class="text-2xl font-bold font-headline">RECENT OPERATIONS</h3>
+</div>
+<div class="flex gap-2">
+<button class="p-2 bg-surface-container-high hover:bg-zinc-800 transition-colors text-zinc-400">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+</button>
+<button class="p-2 bg-surface-container-high hover:bg-zinc-800 transition-colors text-orange-500">
+<span class="material-symbols-outlined" data-icon="view_list">view_list</span>
+</button>
+</div>
+</div>
+<div class="grid gap-4">
+<!-- Track Item 1: Processing -->
+<div class="bg-surface-container-low p-4 flex flex-col md:flex-row items-center gap-6 ghost-border-tl transition-all hover:bg-surface-container-high group">
+<div class="w-full md:w-48 h-16 bg-surface-container-lowest rounded overflow-hidden relative">
+<div class="absolute inset-0 flex items-center justify-around px-2 opacity-40">
+<!-- Mock Waveform -->
+<div class="w-1 h-8 bg-secondary rounded-full"></div>
+<div class="w-1 h-4 bg-secondary rounded-full"></div>
+<div class="w-1 h-12 bg-secondary rounded-full"></div>
+<div class="w-1 h-6 bg-secondary rounded-full"></div>
+<div class="w-1 h-10 bg-secondary rounded-full"></div>
+<div class="w-1 h-4 bg-secondary rounded-full"></div>
+<div class="w-1 h-12 bg-secondary rounded-full"></div>
+<div class="w-1 h-8 bg-secondary rounded-full"></div>
+<div class="w-1 h-4 bg-secondary rounded-full"></div>
+<div class="w-1 h-10 bg-secondary rounded-full"></div>
+<div class="w-1 h-6 bg-secondary rounded-full"></div>
+<div class="w-1 h-12 bg-secondary rounded-full"></div>
+<div class="w-1 h-4 bg-secondary rounded-full"></div>
+<div class="w-1 h-8 bg-secondary rounded-full"></div>
+</div>
+<div class="absolute inset-0 bg-gradient-to-r from-transparent via-primary/10 to-transparent animate-pulse"></div>
+</div>
+<div class="flex-1 min-w-0">
+<h4 class="text-lg font-bold font-headline truncate">NEON_DISTRICT_V2.WAV</h4>
+<p class="text-xs font-label text-zinc-500 tracking-wider">UPLOADED 2M AGO • 128 BPM</p>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex flex-col items-end">
+<span class="text-[10px] font-bold font-label tracking-widest text-primary-container animate-pulse">PROCESSING...</span>
+<div class="w-32 h-1 bg-surface-container-lowest mt-2 rounded-full overflow-hidden">
+<div class="w-2/3 h-full bg-primary-container shadow-[0_0_10px_rgba(249,115,22,0.5)]"></div>
+</div>
+</div>
+<button class="p-2 text-zinc-600 cursor-not-allowed">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Track Item 2: Completed -->
+<div class="bg-surface-container-low p-4 flex flex-col md:flex-row items-center gap-6 ghost-border-tl transition-all hover:bg-surface-container-high group">
+<div class="w-full md:w-48 h-16 bg-surface-container-lowest rounded overflow-hidden relative">
+<div class="absolute inset-0 flex items-center justify-around px-2">
+<!-- Mock Waveform -->
+<div class="w-1 h-4 bg-secondary rounded-full opacity-60"></div>
+<div class="w-1 h-12 bg-secondary rounded-full"></div>
+<div class="w-1 h-8 bg-secondary rounded-full"></div>
+<div class="w-1 h-4 bg-secondary rounded-full opacity-60"></div>
+<div class="w-1 h-10 bg-secondary rounded-full"></div>
+<div class="w-1 h-14 bg-secondary rounded-full"></div>
+<div class="w-1 h-6 bg-secondary rounded-full"></div>
+<div class="w-1 h-10 bg-secondary rounded-full"></div>
+<div class="w-1 h-4 bg-secondary rounded-full opacity-60"></div>
+<div class="w-1 h-12 bg-secondary rounded-full"></div>
+<div class="w-1 h-8 bg-secondary rounded-full"></div>
+<div class="w-1 h-4 bg-secondary rounded-full opacity-60"></div>
+<div class="w-1 h-10 bg-secondary rounded-full"></div>
+<div class="w-1 h-6 bg-secondary rounded-full"></div>
+</div>
+</div>
+<div class="flex-1 min-w-0">
+<h4 class="text-lg font-bold font-headline truncate">CYBER_PUNK_THEME.MP3</h4>
+<p class="text-xs font-label text-zinc-500 tracking-wider">UPLOADED 1H AGO • 140 BPM</p>
+</div>
+<div class="flex items-center gap-6">
+<div class="px-3 py-1 bg-secondary/10 border border-secondary/20 rounded-sm">
+<span class="text-[10px] font-bold font-label tracking-widest text-secondary uppercase">Isolated</span>
+</div>
+<button class="bg-surface-container-highest p-2 rounded-sm text-on-surface hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="download">download</span>
+</button>
+<button class="p-2 text-zinc-500 hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Track Item 3: Completed -->
+<div class="bg-surface-container-low p-4 flex flex-col md:flex-row items-center gap-6 ghost-border-tl transition-all hover:bg-surface-container-high group">
+<div class="w-full md:w-48 h-16 bg-surface-container-lowest rounded overflow-hidden relative">
+<div class="absolute inset-0 flex items-center justify-around px-2">
+<!-- Mock Waveform -->
+<div class="w-1 h-10 bg-secondary rounded-full"></div>
+<div class="w-1 h-6 bg-secondary rounded-full"></div>
+<div class="w-1 h-12 bg-secondary rounded-full"></div>
+<div class="w-1 h-4 bg-secondary rounded-full opacity-60"></div>
+<div class="w-1 h-8 bg-secondary rounded-full"></div>
+<div class="w-1 h-10 bg-secondary rounded-full"></div>
+<div class="w-1 h-4 bg-secondary rounded-full opacity-60"></div>
+<div class="w-1 h-14 bg-secondary rounded-full"></div>
+<div class="w-1 h-8 bg-secondary rounded-full"></div>
+<div class="w-1 h-10 bg-secondary rounded-full"></div>
+<div class="w-1 h-6 bg-secondary rounded-full"></div>
+<div class="w-1 h-12 bg-secondary rounded-full"></div>
+<div class="w-1 h-4 bg-secondary rounded-full opacity-60"></div>
+<div class="w-1 h-8 bg-secondary rounded-full"></div>
+</div>
+</div>
+<div class="flex-1 min-w-0">
+<h4 class="text-lg font-bold font-headline truncate">SYNTH_WAVE_08.WAV</h4>
+<p class="text-xs font-label text-zinc-500 tracking-wider">UPLOADED 3H AGO • 95 BPM</p>
+</div>
+<div class="flex items-center gap-6">
+<div class="px-3 py-1 bg-secondary/10 border border-secondary/20 rounded-sm">
+<span class="text-[10px] font-bold font-label tracking-widest text-secondary uppercase">Isolated</span>
+</div>
+<button class="bg-surface-container-highest p-2 rounded-sm text-on-surface hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="download">download</span>
+</button>
+<button class="p-2 text-zinc-500 hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-2 bg-[#131315]/80 backdrop-blur-xl">
+<div class="flex flex-col items-center justify-center text-orange-500 bg-orange-500/10 rounded-xl p-2 scale-90 transition-all cursor-pointer">
+<span class="material-symbols-outlined" data-icon="blur_on">blur_on</span>
+<span class="text-[10px] font-bold font-label tracking-widest mt-1">EXTRACT</span>
+</div>
+<div class="flex flex-col items-center justify-center text-zinc-500 p-2 hover:text-orange-400 transition-all cursor-pointer">
+<span class="material-symbols-outlined" data-icon="tune">tune</span>
+<span class="text-[10px] font-bold font-label tracking-widest mt-1">MIXER</span>
+</div>
+<div class="flex flex-col items-center justify-center text-zinc-500 p-2 hover:text-orange-400 transition-all cursor-pointer">
+<span class="material-symbols-outlined" data-icon="🥁">article</span>
+<span class="text-[10px] font-bold font-label tracking-widest mt-1">DRUMS</span>
+</div>
+<div class="flex flex-col items-center justify-center text-zinc-500 p-2 hover:text-orange-400 transition-all cursor-pointer">
+<span class="material-symbols-outlined" data-icon="library_music">library_music</span>
+<span class="text-[10px] font-bold font-label tracking-widest mt-1">LIBRARY</span>
+</div>
+</nav>
+<!-- Visual Accents -->
+<div class="fixed bottom-12 right-12 pointer-events-none opacity-20 hidden xl:block">
+<div class="text-[120px] font-bold font-headline leading-none text-outline-variant select-none">SF_CON</div>
+</div>
+</body></html>

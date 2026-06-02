@@ -1,5 +1,10 @@
 {
+  "name": "my-project",
+  "version": "1.0.0",
   "devDependencies": {
     "http-server": "^14.1.1"
+  },
+  "scripts": {
+    "build": "mkdir -p dist && cp src/*.html dist/"
   }
 }

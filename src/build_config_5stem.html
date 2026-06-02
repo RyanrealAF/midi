@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>StemForge | Precision Console</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary": "#c6c6c6",
+                        "on-secondary-fixed": "#1a1c1c",
+                        "on-background": "#e5e2e1",
+                        "surface-bright": "#393939",
+                        "outline-variant": "#514532",
+                        "on-tertiary-container": "#00566a",
+                        "background": "#131313",
+                        "on-error-container": "#ffdad6",
+                        "error": "#ffb4ab",
+                        "surface-dim": "#131313",
+                        "on-primary-fixed": "#281900",
+                        "tertiary": "#a4e7ff",
+                        "error-container": "#93000a",
+                        "surface-variant": "#353534",
+                        "on-tertiary-fixed-variant": "#004e60",
+                        "on-secondary-container": "#b5b5b5",
+                        "on-secondary-fixed-variant": "#454747",
+                        "on-error": "#690005",
+                        "on-tertiary": "#003543",
+                        "primary-container": "#ffb300",
+                        "tertiary-fixed": "#b5ebff",
+                        "primary-fixed-dim": "#ffba38",
+                        "secondary-fixed-dim": "#c6c6c6",
+                        "primary": "#ffd79b",
+                        "surface-container-high": "#2a2a2a",
+                        "surface-tint": "#ffba38",
+                        "on-surface-variant": "#d6c4ac",
+                        "inverse-on-surface": "#313030",
+                        "tertiary-fixed-dim": "#43d6ff",
+                        "on-primary-fixed-variant": "#604100",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-surface": "#e5e2e1",
+                        "inverse-primary": "#7e5700",
+                        "surface-container-low": "#1c1b1b",
+                        "tertiary-container": "#00d2fe",
+                        "secondary-container": "#454747",
+                        "surface-container": "#201f1f",
+                        "on-tertiary-fixed": "#001f28",
+                        "secondary-fixed": "#e2e2e2",
+                        "on-primary": "#432c00",
+                        "inverse-surface": "#e5e2e1",
+                        "on-primary-container": "#6b4900",
+                        "primary-fixed": "#ffdeac",
+                        "outline": "#9e8e78",
+                        "surface": "#131313",
+                        "on-secondary": "#2f3131",
+                        "surface-container-highest": "#353534"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Space Grotesk"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>body {
+    font-family: "Inter", sans-serif;
+    background-color: #131313
+    }
+.font-headline {
+    font-family: "Space Grotesk", sans-serif
+    }
+.material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24
+    }
+.inner-shadow {
+    box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.6)
+    }
+.brushed-metal {
+    background: linear-gradient(135deg, #2a2a2a 0%, #1c1b1b 100%);
+    position: relative
+    }
+.brushed-metal::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuCfAQ_ZF0YjQda5iN5CGgmq-qA--KU1hQ0tKGYC2Yr7HOdkSnQK1XHJnjJyqOg3Ung6U6ViphN0__N1ldQw6bDqzR7HMOz-lbgs7xDqCWvTZ2qUBYl_kYpN_eotJLiAoW6yfUr4UwAfHJ5OCbn7e8JOyvTEIDSVnrIUAbK3MMpW6pKYuSkiQOzK2oxGIYugR9rnlfSEhiCnVIDaMbXaLjYT-IOgcVln3Qu_ri2Wczl7_8q7fXAIMDeuNnEw12zTbq1-I1w-sqFkYQ);
+    opacity: 0.05;
+    pointer-events: none
+    }</style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="text-on-surface select-none">
+<!-- Top Navigation Shell -->
+<header class="flex justify-between items-center w-full px-6 py-4 h-16 bg-[#131313] shadow-[inset_0_1px_0_0_rgba(255,179,0,0.1)]">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#FFB300]" data-icon="settings_input_component">settings_input_component</span>
+<h1 class="text-xl font-bold tracking-tighter text-[#FFB300] font-headline uppercase">PRECISION CONSOLE</h1>
+</div>
+<div class="flex items-center gap-4">
+<div class="h-8 w-8 rounded-full overflow-hidden border border-outline-variant/30">
+<img alt="User Profile" data-alt="professional portrait of a technical engineer in a dark studio setting with amber accent lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7kfMPOXrirvfPiJXKY5Dda7jrma2vi5zQcLJXvIWY0VLYKoI2xBoon8A5qaGATOW4HozBoJka6rISowvXjhBR5jbYMcGLcc-7Yk-y1N-1zlg_ZJTTYj2rgBfwE34g79VxaZUjGRgi8x7TTyhSZ12D195jg5GJ3kuZUFz7W0-sCAB2qpHJ0xhRFjxWYP5vV1XM_QBUGQcR30p957YQTjFV7wQpJRxbsmF1OOBtwyskbZ_3eG8EONn-V4oQNN5gPRcX1-mOLrrcUg"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="max-w-4xl mx-auto p-6 md:p-10 mb-24">
+<!-- Header Branding & Identity Section -->
+<section class="flex flex-col md:flex-row items-center gap-8 mb-12 p-8 brushed-metal rounded-lg shadow-2xl">
+<div class="relative group">
+<div class="w-32 h-32 bg-surface-container-lowest flex items-center justify-center rounded-xl border-l-4 border-[#FFB300] shadow-inner">
+<span class="material-symbols-outlined text-6xl text-[#FFB300]" style="font-variation-settings: 'FILL' 1;">deployed_code</span>
+</div>
+<div class="absolute -bottom-2 -right-2 bg-[#FFB300] text-on-primary-container px-2 py-1 text-[10px] font-bold font-headline rounded-sm">LIVE</div>
+</div>
+<div class="text-center md:text-left flex-1">
+<div class="label-sm font-headline text-[#FFB300] tracking-[0.2em] mb-1 uppercase">System Identity</div>
+<h2 class="text-4xl md:text-5xl font-bold font-headline tracking-tighter text-on-surface mb-2">StemForge</h2>
+<div class="flex items-center justify-center md:justify-start gap-4">
+<span class="text-secondary font-mono text-sm tracking-widest bg-surface-container-high px-3 py-1 rounded">v4.0.1</span>
+<div class="flex items-center gap-1 text-tertiary-container">
+<span class="w-2 h-2 rounded-full bg-tertiary-container animate-pulse"></span>
+<span class="text-[10px] font-headline font-bold uppercase tracking-widest">Ready for 5-Stem Export</span>
+</div>
+</div>
+</div>
+</section>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Build Configuration: Mechanical Toggles -->
+<section class="flex flex-col gap-6">
+<div class="label-md font-headline text-[#FFB300] tracking-[0.1em] border-b border-outline-variant/20 pb-2 uppercase">Build Configuration</div>
+<div class="space-y-4">
+<!-- Toggle 1 -->
+<div class="flex items-center justify-between p-4 bg-surface-container-low rounded-lg transition-all hover:bg-surface-container">
+<div class="flex flex-col">
+<span class="font-headline text-sm font-bold tracking-wide uppercase">Enable GPU Acceleration</span>
+<span class="text-[10px] text-secondary/60 uppercase">Optimize for high-performance hardware</span>
+</div>
+<button class="w-12 h-6 bg-surface-container-highest rounded-full p-1 flex items-center justify-start border border-outline-variant/30">
+<div class="w-4 h-4 bg-[#FFB300] rounded-full shadow-[0_0_8px_rgba(255,179,0,0.5)]"></div>
+</button>
+</div>
+<!-- Toggle 2 -->
+<div class="flex items-center justify-between p-4 bg-surface-container-low rounded-lg transition-all hover:bg-surface-container">
+<div class="flex flex-col">
+<span class="font-headline text-sm font-bold tracking-wide uppercase">Include Legacy Codecs</span>
+<span class="text-[10px] text-secondary/60 uppercase">Ensure compatibility with older devices</span>
+</div>
+<button class="w-12 h-6 bg-[#252525] rounded-full p-1 flex items-center justify-end border border-outline-variant/30">
+<div class="w-4 h-4 bg-surface-variant rounded-full"></div>
+</button>
+</div>
+<!-- Toggle 3 -->
+<div class="flex items-center justify-between p-4 bg-surface-container-low rounded-lg transition-all hover:bg-surface-container">
+<div class="flex flex-col">
+<span class="font-headline text-sm font-bold tracking-wide uppercase">Debug Mode</span>
+<span class="text-[10px] text-secondary/60 uppercase">Enable verbose logging and hot reloading</span>
+</div>
+<button class="w-12 h-6 bg-surface-container-highest rounded-full p-1 flex items-center justify-start border border-outline-variant/30">
+<div class="w-4 h-4 bg-[#FFB300] rounded-full shadow-[0_0_8px_rgba(255,179,0,0.5)]"></div>
+</button>
+</div>
+</div><div class="mt-4 p-3 border border-outline-variant/10 rounded bg-surface-container-lowest/50"><div class="text-[10px] font-headline text-[#FFB300] uppercase mb-1 tracking-wider">Processing Model</div><div class="text-[11px] text-secondary">5-STEM ISOLATION (VOCALS, BASS, GUITAR, DRUMS, OTHER)</div></div>
+</section>
+<!-- Target Platforms: Module Selection -->
+<section class="flex flex-col gap-6">
+<div class="label-md font-headline text-[#FFB300] tracking-[0.1em] border-b border-outline-variant/20 pb-2 uppercase">Target Platforms</div>
+<div class="grid grid-cols-1 gap-4">
+<!-- Android Card -->
+<div class="group relative bg-surface-container-high p-5 rounded-lg border-l-2 border-[#FFB300] flex items-center gap-5 cursor-pointer hover:bg-surface-container-highest transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined text-4xl text-[#FFB300]" data-icon="robot_2">robot_2</span>
+<div class="flex-1">
+<div class="font-headline font-bold uppercase tracking-tight">Android</div>
+<div class="text-[10px] text-secondary font-mono tracking-tighter">PACKAGE: .APK / .AAB (Multi-arch)</div>
+</div>
+<span class="material-symbols-outlined text-primary-container" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<!-- iOS Card -->
+<div class="group relative bg-surface-container-low p-5 rounded-lg border-l-2 border-transparent flex items-center gap-5 cursor-pointer hover:bg-surface-container-high transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined text-4xl text-secondary" data-icon="phone_iphone">phone_iphone</span>
+<div class="flex-1">
+<div class="font-headline font-bold uppercase tracking-tight text-secondary">Apple iOS</div>
+<div class="text-[10px] text-secondary/40 font-mono tracking-tighter">PACKAGE: .IPA (Xcode Required)</div>
+</div>
+<span class="material-symbols-outlined text-surface-variant" data-icon="radio_button_unchecked">radio_button_unchecked</span>
+</div>
+</div>
+<!-- Export Progress / VU-Level Indicator Mockup -->
+<div class="mt-4 bg-surface-container-lowest p-4 rounded border border-outline-variant/10">
+<div class="flex justify-between items-center mb-2">
+<span class="text-[10px] font-headline uppercase tracking-widest text-secondary">Export Readiness</span>
+<span class="text-[10px] font-headline uppercase tracking-widest text-[#FFB300]">88%</span>
+</div>
+<div class="h-2 w-full bg-surface-container flex gap-1"><div class="h-full w-1/5 bg-tertiary-container" title="Vocals"></div><div class="h-full w-1/5 bg-tertiary-container" title="Bass"></div><div class="h-full w-1/5 bg-tertiary-container" title="Guitar"></div><div class="h-full w-1/5 bg-[#FFB300]" title="Drums"></div><div class="h-full w-1/5 bg-secondary/20" title="Other"></div></div><div class="flex justify-between mt-1 text-[8px] font-headline uppercase tracking-tighter text-secondary/40"><span>Vocals</span><span>Bass</span><span>Guitar</span><span>Drums</span><span>Other</span></div>
+</div>
+</section>
+</div>
+<!-- Master Action: Industrial Button -->
+<section class="mt-16 flex flex-col items-center">
+<button class="relative group w-full max-w-lg py-6 px-10 bg-[#FFB300] hover:bg-[#ffc12e] active:scale-95 transition-all duration-150 rounded-lg shadow-[0_10px_40px_rgba(255,179,0,0.2)] overflow-hidden">
+<div class="absolute inset-0 border-t-2 border-white/20 pointer-events-none"></div>
+<div class="flex items-center justify-center gap-4 relative z-10">
+<span class="material-symbols-outlined text-on-primary-container font-bold text-3xl" data-icon="bolt">bolt</span>
+<span class="text-on-primary-container font-headline font-extrabold text-xl tracking-widest uppercase">GENERATE MOBILE BUILD</span>
+</div>
+<div class="absolute -right-4 -bottom-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-9xl text-on-primary-container" data-icon="precision_manufacturing">precision_manufacturing</span>
+</div>
+</button>
+<p class="mt-6 text-[10px] font-headline text-secondary/40 tracking-[0.3em] uppercase">Security Hash Checksum: 0x98FF23A...EB42</p>
+</section>
+</main>
+<!-- Bottom Navigation Shell -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center h-20 px-4 pb-safe bg-[#131313] shadow-[0_-4px_20px_rgba(0,0,0,0.5)] z-50">
+<a class="flex flex-col items-center justify-center text-[#666666] p-2 hover:text-[#FFB300] hover:bg-[#1C1C1C] transition-all" href="#">
+<span class="material-symbols-outlined text-2xl" data-icon="construction">construction</span>
+<span class="font-['Space_Grotesk'] text-[10px] tracking-[0.05em] font-bold uppercase mt-1">BUILD</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#666666] p-2 hover:text-[#FFB300] hover:bg-[#1C1C1C] transition-all" href="#">
+<span class="material-symbols-outlined text-2xl" data-icon="folder_managed">folder_managed</span>
+<span class="font-['Space_Grotesk'] text-[10px] tracking-[0.05em] font-bold uppercase mt-1">ASSETS</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#FFB300] bg-[#252525] rounded-sm p-2 border-l-2 border-[#FFB300] transition-all" href="#">
+<span class="material-symbols-outlined text-2xl" data-icon="ios_share">ios_share</span>
+<span class="font-['Space_Grotesk'] text-[10px] tracking-[0.05em] font-bold uppercase mt-1">EXPORT</span>
+</a>
+</nav>
+</body></html>
