@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline-variant": "#514532",
+                    "surface-container-lowest": "#0e0e0e",
+                    "inverse-on-surface": "#313030",
+                    "surface-variant": "#353534",
+                    "error-container": "#93000a",
+                    "primary": "#ffd79b",
+                    "secondary-fixed": "#e2e2e2",
+                    "on-tertiary-container": "#00566a",
+                    "on-secondary-container": "#b5b5b5",
+                    "tertiary-fixed": "#b5ebff",
+                    "tertiary-container": "#00d2fe",
+                    "surface-container-low": "#1c1b1b",
+                    "surface-container-highest": "#353534",
+                    "on-secondary-fixed": "#1a1c1c",
+                    "on-primary": "#432c00",
+                    "primary-fixed": "#ffdeac",
+                    "on-primary-fixed": "#281900",
+                    "on-secondary-fixed-variant": "#454747",
+                    "surface-tint": "#ffba38",
+                    "on-error": "#690005",
+                    "on-surface": "#e5e2e1",
+                    "on-surface-variant": "#d6c4ac",
+                    "surface-container-high": "#2a2a2a",
+                    "on-primary-container": "#6b4900",
+                    "error": "#ffb4ab",
+                    "on-tertiary-fixed-variant": "#004e60",
+                    "on-tertiary": "#003543",
+                    "on-error-container": "#ffdad6",
+                    "surface-container": "#201f1f",
+                    "secondary": "#c6c6c6",
+                    "on-primary-fixed-variant": "#604100",
+                    "secondary-fixed-dim": "#c6c6c6",
+                    "secondary-container": "#454747",
+                    "inverse-primary": "#7e5700",
+                    "surface": "#131313",
+                    "tertiary": "#a4e7ff",
+                    "surface-bright": "#393939",
+                    "surface-dim": "#131313",
+                    "on-background": "#e5e2e1",
+                    "tertiary-fixed-dim": "#43d6ff",
+                    "outline": "#9e8e78",
+                    "on-tertiary-fixed": "#001f28",
+                    "on-secondary": "#2f3131",
+                    "inverse-surface": "#e5e2e1",
+                    "primary-fixed-dim": "#ffba38",
+                    "primary-container": "#ffb300",
+                    "background": "#131313"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Space Grotesk"],
+                    "body": ["Inter"],
+                    "label": ["Space Grotesk"]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .brushed-metal {
+            background-image: linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 2px 2px;
+            background-color: #1a1a1a;
+            position: relative;
+        }
+        .brushed-metal::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, transparent 50%, rgba(0,0,0,0.2) 100%);
+            pointer-events: none;
+        }
+        .rack-screw {
+            width: 12px;
+            height: 12px;
+            background: radial-gradient(circle at 30% 30%, #444, #111);
+            border-radius: 50%;
+            box-shadow: inset 0 1px 1px rgba(255,255,255,0.2), 0 1px 2px rgba(0,0,0,0.5);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary selection:text-on-primary">
+<header class="bg-[#131313] flex justify-between items-center w-full px-6 py-4 shadow-[inset_0_1px_0_0_rgba(255,215,155,0.1)] sticky top-0 z-50">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#FFB300]" data-icon="settings_input_component">settings_input_component</span>
+<h1 class="font-['Space_Grotesk'] uppercase tracking-[0.05em] text-2xl font-bold tracking-tighter text-[#FFB300]">PRECISION_CONSOLE</h1>
+</div>
+<div class="flex items-center gap-6">
+<nav class="hidden md:flex gap-8">
+<a class="font-['Space_Grotesk'] uppercase tracking-[0.05em] text-[#FFB300] text-sm font-bold" href="#">Extract</a>
+<a class="font-['Space_Grotesk'] uppercase tracking-[0.05em] text-gray-500 text-sm font-bold hover:text-[#ffd79b] transition-colors" href="#">Mixer</a>
+<a class="font-['Space_Grotesk'] uppercase tracking-[0.05em] text-gray-500 text-sm font-bold hover:text-[#ffd79b] transition-colors" href="#">Drums</a>
+<a class="font-['Space_Grotesk'] uppercase tracking-[0.05em] text-gray-500 text-sm font-bold hover:text-[#ffd79b] transition-colors" href="#">Library</a>
+</nav>
+<div class="w-10 h-10 rounded-none bg-surface-container-highest border border-outline-variant flex items-center justify-center overflow-hidden">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="Abstract geometric avatar icon representing a technical professional in golden and charcoal tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCB5lPLIC7hDp0P3GH-zRPfG-fDCTHTHOP2PuVmmvh_0mRLBdLKdmYdXCwIY7oPqi-kLf_F8SyfCjietuWLMG3i5SRfxA-YMx44SJtCG1ckV3ZnojMSq2yH2SId2FsblIelXfoLelyA0CN9hSAeRkUeMZpyadlhEXM-vJKNPywzh8OhbAH2HzZ-9skSxbCXpDmSkTzQgpTkYn8RSZ5DVw_GUVGbLm9JrScHarbVo08vGeQCNvD6_Tfa9yviZZqFg3cdt8QGsBk_LA"/>
+</div>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-6 py-12 pb-32">
+<div class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<span class="font-label uppercase tracking-widest text-primary text-xs mb-2 block">System Status: Operational</span>
+<h2 class="font-headline text-5xl font-extrabold tracking-tighter text-on-surface">Unforge Your Sound</h2>
+<p class="text-on-surface-variant max-w-xl mt-4 leading-relaxed font-light">Deconstruct multi-track masters with phase-accurate separation. Engineered for the modern technician.</p>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex flex-col items-end">
+<span class="font-label text-[10px] uppercase text-outline mb-1">Master Gain</span>
+<div class="h-1.5 w-32 bg-surface-container-low rounded-full overflow-hidden flex gap-0.5">
+<div class="h-full w-1/4 bg-tertiary-container"></div>
+<div class="h-full w-1/4 bg-tertiary-container"></div>
+<div class="h-full w-1/4 bg-tertiary-container"></div>
+<div class="h-full w-1/8 bg-primary"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<section class="lg:col-span-4 space-y-8">
+<div class="brushed-metal p-1 rounded-lg border border-outline-variant/30 shadow-2xl overflow-hidden group">
+<div class="bg-surface-container-lowest p-8 border border-white/5 flex flex-col items-center text-center gap-6 relative min-h-[400px] justify-center">
+<div class="rack-screw absolute top-3 left-3"></div>
+<div class="rack-screw absolute top-3 right-3"></div>
+<div class="rack-screw absolute bottom-3 left-3"></div>
+<div class="rack-screw absolute bottom-3 right-3"></div>
+<div class="w-20 h-20 rounded-full border-2 border-dashed border-primary/30 flex items-center justify-center group-hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-primary text-4xl" data-icon="upload_file">upload_file</span>
+</div>
+<div>
+<h3 class="font-headline text-xl font-bold text-on-surface uppercase tracking-tight">Signal Ingress</h3>
+<p class="text-sm text-on-surface-variant mt-2 px-4">Drop raw stem or master file here. WAV, AIFF, or FLAC supported.</p>
+</div>
+<button class="bg-primary-container text-on-primary-container px-8 py-3 font-label font-bold uppercase tracking-widest text-xs rounded-none hover:bg-primary transition-all active:scale-95 shadow-[inset_0_1px_0_rgba(255,255,255,0.2)]">
+                            Initialize Upload
+                        </button>
+<div class="mt-4 pt-4 border-t border-outline-variant/20 w-full flex justify-between px-2">
+<span class="font-label text-[10px] text-outline">BITRATE: AUTO</span>
+<span class="font-label text-[10px] text-outline">LATENCY: 0.2MS</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-high p-6 border-l-4 border-primary">
+<h4 class="font-label text-xs font-bold text-primary uppercase tracking-widest mb-4">Channel Routing</h4>
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<span class="text-xs uppercase font-medium text-on-surface-variant">Vocals Separator</span>
+<div class="w-10 h-5 bg-surface-container-lowest rounded-full p-1 flex justify-end">
+<div class="w-3 h-3 bg-primary rounded-full shadow-[0_0_8px_rgba(255,179,0,0.6)]"></div>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-xs uppercase font-medium text-on-surface-variant">Drum Isolation</span>
+<div class="w-10 h-5 bg-surface-container-lowest rounded-full p-1 flex justify-start">
+<div class="w-3 h-3 bg-surface-variant rounded-full"></div>
+</div>
+</div>
+<div class="flex items-center justify-between opacity-50">
+<span class="text-xs uppercase font-medium text-on-surface-variant">Phase Correction</span>
+<div class="w-10 h-5 bg-surface-container-lowest rounded-full p-1 flex justify-end">
+<div class="w-3 h-3 bg-tertiary-container rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="lg:col-span-8">
+<div class="flex items-center justify-between mb-6">
+<h3 class="font-headline text-lg font-bold uppercase tracking-widest text-on-surface-variant">Active Lab Sessions</h3>
+<div class="flex gap-2">
+<button class="p-2 bg-surface-container hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="grid_view">grid_view</span>
+</button>
+<button class="p-2 bg-surface-container-highest text-primary">
+<span class="material-symbols-outlined text-sm" data-icon="list">list</span>
+</button>
+</div>
+</div>
+<div class="space-y-4">
+<div class="bg-surface-container-high border-x-8 border-surface-container-lowest flex items-center p-4 gap-6 relative group">
+<div class="absolute -left-[4px] top-1/2 -translate-y-1/2 rack-screw scale-75"></div>
+<div class="absolute -right-[4px] top-1/2 -translate-y-1/2 rack-screw scale-75"></div>
+<div class="w-16 h-16 bg-surface-container-lowest flex-shrink-0 border border-outline-variant/30 flex items-center justify-center overflow-hidden">
+<img alt="Session Art" class="w-full h-full object-cover opacity-60 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all" data-alt="Close up of a professional studio mixing board with glowing amber and red lights in a dark environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpMRsKO9Rtx5o9uHuBBnIlpxwhITD_2un3jNnBvDVJ0V7BuwgF6tTw_HoVyFbRSyfkcVB5fm-saSwV3pIlPYUKFAETUd7t7EfWnCfxsRJ-YMAlkq84m2YRivCDpmT7XeXs9kveWn1s5LkwJpyRyudUC0aizV97smaDiV1QiHzZlz6US_KJdmizIVJYXlHAPAevL49l5KfVbaB0qzXy9MLrAdn1YphWQIRjOJ9DbvhhOML7vi4RhgRAfEq2jzkMxbCI8OtmCUCKtQ"/>
+</div>
+<div class="flex-grow">
+<div class="flex items-center gap-2">
+<span class="font-label text-[10px] text-primary bg-primary/10 px-2 py-0.5">COMPLETED</span>
+<h4 class="font-headline font-bold text-on-surface tracking-wide">Neon_Atmosphere_v4.wav</h4>
+</div>
+<div class="flex gap-4 mt-1 text-[11px] text-on-surface-variant uppercase font-medium">
+<span>24-bit / 48kHz</span>
+<span>Duration: 04:32</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex flex-col items-end gap-1">
+<span class="font-label text-[9px] text-outline">S/N: 0482-12</span>
+<div class="flex gap-0.5">
+<div class="w-1 h-3 bg-tertiary-container"></div>
+<div class="w-1 h-3 bg-tertiary-container"></div>
+<div class="w-1 h-3 bg-tertiary-container"></div>
+<div class="w-1 h-3 bg-tertiary-container opacity-30"></div>
+</div>
+</div>
+<button class="w-10 h-10 flex items-center justify-center border border-outline-variant hover:bg-primary hover:text-on-primary transition-all">
+<span class="material-symbols-outlined" data-icon="download">download</span>
+</button>
+</div>
+</div>
+<div class="bg-surface-container-high border-x-8 border-surface-container-lowest flex items-center p-4 gap-6 relative group">
+<div class="absolute -left-[4px] top-1/2 -translate-y-1/2 rack-screw scale-75"></div>
+<div class="absolute -right-[4px] top-1/2 -translate-y-1/2 rack-screw scale-75"></div>
+<div class="w-16 h-16 bg-surface-container-lowest flex-shrink-0 border border-outline-variant/30 flex items-center justify-center overflow-hidden">
+<img alt="Session Art" class="w-full h-full object-cover opacity-60 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all" data-alt="Abstract view of sound waves and digital audio editing software on a high-resolution screen in a dark studio" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfS1PAHmp5cSSAWYeFP9RTFzB1LoW1QDSUDyAeY9z4SugYPHXHv3gzLi1F48iUo_LtLNlbbGxxhg9dQGT9ENDvtkHr-sQBUZdTRFH03jmpBxR7IAdmnh_FET-fqIBUaPBCfe4yaKqwu7umnGRzOXSiAfV7S3oXU2F2JZAaQJwKhKboLHWLp1VisOIRvnlYqQeX1zal-EuHcowSU8nKmceqDmvCzartbPn5cwf6x8QzE18rC6AyESgtEvoBbzZG7Y_xCq6UCsdP7A"/>
+</div>
+<div class="flex-grow">
+<div class="flex items-center gap-2">
+<span class="font-label text-[10px] text-tertiary bg-tertiary/10 px-2 py-0.5">PROCESSING</span>
+<h4 class="font-headline font-bold text-on-surface tracking-wide">Synaptic_Drift_Master.wav</h4>
+</div>
+<div class="w-full h-1 bg-surface-container-lowest mt-3 overflow-hidden">
+<div class="h-full w-2/3 bg-tertiary-container shadow-[0_0_10px_rgba(0,210,254,0.4)]"></div>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center border border-outline-variant hover:bg-error hover:text-on-error transition-all">
+<span class="material-symbols-outlined" data-icon="stop">stop</span>
+</button>
+</div>
+</div>
+<div class="bg-surface-container-high border-x-8 border-surface-container-lowest flex items-center p-4 gap-6 relative group">
+<div class="absolute -left-[4px] top-1/2 -translate-y-1/2 rack-screw scale-75"></div>
+<div class="absolute -right-[4px] top-1/2 -translate-y-1/2 rack-screw scale-75"></div>
+<div class="w-16 h-16 bg-surface-container-lowest flex-shrink-0 border border-outline-variant/30 flex items-center justify-center overflow-hidden">
+<img alt="Session Art" class="w-full h-full object-cover opacity-60 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all" data-alt="Close up of a classic vacuum tube amplifier glowing with warm orange light inside a dark cabinet" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeN5o0uY2G_3lv6kRYOZhFTV--p08Y4I2K4VYj7No1pCT_b0OmFsZr8zlLeieiXDuUdPkFQZSQHF0LDdJ0Oq9lV14KVtvwS2cRPAdO-9kfcj1PHY3txJ79MmVO5IwvHzC7JXDykvoXFCMIW9JlbxFufRLmducva-9wQte1Sb9Un36Ixzfg9hmNi9pdm9xYIsKnPVNp2a6BZR--nHt9rVLSBHOcnV4hnfssILZi_OhFkaXqPPyYadr01npvqZhRRJNwiIMlV6U98w"/>
+</div>
+<div class="flex-grow">
+<div class="flex items-center gap-2">
+<span class="font-label text-[10px] text-primary bg-primary/10 px-2 py-0.5">COMPLETED</span>
+<h4 class="font-headline font-bold text-on-surface tracking-wide">Basement_Tapes_Live.wav</h4>
+</div>
+<div class="flex gap-4 mt-1 text-[11px] text-on-surface-variant uppercase font-medium">
+<span>16-bit / 44.1kHz</span>
+<span>Duration: 12:45</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex flex-col items-end gap-1">
+<span class="font-label text-[9px] text-outline">S/N: 0482-08</span>
+<div class="flex gap-0.5">
+<div class="w-1 h-3 bg-tertiary-container"></div>
+<div class="w-1 h-3 bg-tertiary-container opacity-30"></div>
+<div class="w-1 h-3 bg-tertiary-container opacity-30"></div>
+<div class="w-1 h-3 bg-tertiary-container opacity-30"></div>
+</div>
+</div>
+<button class="w-10 h-10 flex items-center justify-center border border-outline-variant hover:bg-primary hover:text-on-primary transition-all">
+<span class="material-symbols-outlined" data-icon="download">download</span>
+</button>
+</div>
+</div>
+</div>
+<div class="mt-12 p-8 bg-surface-container-lowest border border-outline-variant/20 grid grid-cols-2 md:grid-cols-4 gap-8">
+<div class="space-y-1">
+<span class="font-label text-[10px] text-outline uppercase block">Peak Level</span>
+<span class="font-headline text-2xl font-bold text-primary">-3.2dB</span>
+</div>
+<div class="space-y-1">
+<span class="font-label text-[10px] text-outline uppercase block">Dynamic Range</span>
+<span class="font-headline text-2xl font-bold text-tertiary">14 LUFS</span>
+</div>
+<div class="space-y-1">
+<span class="font-label text-[10px] text-outline uppercase block">Storage Util.</span>
+<span class="font-headline text-2xl font-bold text-on-surface">42%</span>
+</div>
+<div class="space-y-1">
+<span class="font-label text-[10px] text-outline uppercase block">Active Threads</span>
+<span class="font-headline text-2xl font-bold text-on-surface">04</span>
+</div>
+</div>
+</section>
+</div>
+</main>
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-2 bg-[#131313] border-t border-[#FFB300]/10 shadow-2xl">
+<a class="flex flex-col items-center justify-center text-[#FFB300] bg-[#1c1c1c] rounded-sm p-2 shadow-[inset_0_0_10px_rgba(255,179,0,0.1)] active:scale-95 transition-transform duration-100" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="waves">waves</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase font-bold tracking-widest">Extract</span>
+</a>
+<a class="flex flex-col items-center justify-center text-gray-500 p-2 hover:text-[#ffd79b] active:scale-95 transition-transform duration-100" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="tune">tune</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase font-bold tracking-widest">Mixer</span>
+</a>
+<a class="flex flex-col items-center justify-center text-gray-500 p-2 hover:text-[#ffd79b] active:scale-95 transition-transform duration-100" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="drum_set">set_meal</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase font-bold tracking-widest">Drums</span>
+</a>
+<a class="flex flex-col items-center justify-center text-gray-500 p-2 hover:text-[#ffd79b] active:scale-95 transition-transform duration-100" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="library_music">library_music</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase font-bold tracking-widest">Library</span>
+</a>
+</nav>
+</body></html>
