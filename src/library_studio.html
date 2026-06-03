@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline-variant": "#514532",
+                        "surface-container-lowest": "#0e0e0e",
+                        "inverse-on-surface": "#313030",
+                        "surface-variant": "#353534",
+                        "error-container": "#93000a",
+                        "primary": "#ffd79b",
+                        "secondary-fixed": "#e2e2e2",
+                        "on-tertiary-container": "#00566a",
+                        "on-secondary-container": "#b5b5b5",
+                        "tertiary-fixed": "#b5ebff",
+                        "tertiary-container": "#00d2fe",
+                        "surface-container-low": "#1c1b1b",
+                        "surface-container-highest": "#353534",
+                        "on-secondary-fixed": "#1a1c1c",
+                        "on-primary": "#432c00",
+                        "primary-fixed": "#ffdeac",
+                        "on-primary-fixed": "#281900",
+                        "on-secondary-fixed-variant": "#454747",
+                        "surface-tint": "#ffba38",
+                        "on-error": "#690005",
+                        "on-surface": "#e5e2e1",
+                        "on-surface-variant": "#d6c4ac",
+                        "surface-container-high": "#2a2a2a",
+                        "on-primary-container": "#6b4900",
+                        "error": "#ffb4ab",
+                        "on-tertiary-fixed-variant": "#004e60",
+                        "on-tertiary": "#003543",
+                        "on-error-container": "#ffdad6",
+                        "surface-container": "#201f1f",
+                        "secondary": "#c6c6c6",
+                        "on-primary-fixed-variant": "#604100",
+                        "secondary-fixed-dim": "#c6c6c6",
+                        "secondary-container": "#454747",
+                        "inverse-primary": "#7e5700",
+                        "surface": "#131313",
+                        "tertiary": "#a4e7ff",
+                        "surface-bright": "#393939",
+                        "surface-dim": "#131313",
+                        "on-background": "#e5e2e1",
+                        "tertiary-fixed-dim": "#43d6ff",
+                        "outline": "#9e8e78",
+                        "on-tertiary-fixed": "#001f28",
+                        "on-secondary": "#2f3131",
+                        "inverse-surface": "#e5e2e1",
+                        "primary-fixed-dim": "#ffba38",
+                        "primary-container": "#ffb300",
+                        "background": "#131313"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Space Grotesk"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .vignette-surface {
+            background: radial-gradient(circle, transparent 0%, rgba(19,19,19,0.8) 100%);
+        }
+        .analog-glow {
+            box-shadow: 0 0 15px rgba(255, 179, 0, 0.15);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="bg-[#131313] shadow-[inset_0_1px_0_0_rgba(255,215,155,0.1)] flex justify-between items-center w-full px-6 py-4 sticky top-0 z-40">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#FFB300] text-2xl" data-icon="settings_input_component">settings_input_component</span>
+<h1 class="font-['Space_Grotesk'] uppercase tracking-[0.05em] text-2xl font-bold tracking-tighter text-[#FFB300]">PRECISION_CONSOLE</h1>
+</div>
+<div class="hidden md:flex gap-8 items-center font-label text-xs uppercase tracking-widest text-gray-500">
+<a class="hover:bg-[#1c1c1c] transition-colors px-3 py-1 rounded-sm" href="#">Extract</a>
+<a class="hover:bg-[#1c1c1c] transition-colors px-3 py-1 rounded-sm" href="#">Mixer</a>
+<a class="hover:bg-[#1c1c1c] transition-colors px-3 py-1 rounded-sm text-[#FFB300]" href="#">Library</a>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-none bg-surface-container-highest border border-outline-variant flex items-center justify-center overflow-hidden">
+<img alt="user_technician_profile" class="w-full h-full object-cover" data-alt="extreme close-up of a professional sound engineer wearing matte black studio headphones in a dimly lit dark room" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUAnIYPFSFWf6JnJeRr1JzdZ66YbFnOydINEVjXhWJbu7eWLvxPaT8PX9PiiXBjp3l3ShDZB23L9SSbWC0S-lizcgz5AWSFJNIiKCQd5ImStSvuIihMQ9r-8WNeVV8LCY3xsaF4DNptQjLiMaD58QBhvrgkKYdDmeu3kzZCV1g9eVi7bsce_8paFYW8jVTpToH6WSfXPVT4Uv4a8SFTe4mH3PJ0YqPA99yueLj-pkZh6tj25jpsSkiumKFK2VPwHlku8JSmda8Fg"/>
+</div>
+</div>
+</header>
+<main class="min-h-screen px-6 py-8 pb-32">
+<!-- Dashboard Header / Status -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-6 mb-12">
+<div class="md:col-span-8 flex flex-col justify-end">
+<h2 class="font-headline text-5xl font-bold text-primary mb-2 uppercase tracking-tight">Data Archive</h2>
+<p class="font-label text-sm uppercase tracking-[0.2em] text-on-surface-variant">Centralized Repository // Session Logs 08-24</p>
+</div>
+<!-- Analog Storage Gauges -->
+<div class="md:col-span-4 bg-surface-container-low p-6 rounded-none flex flex-col gap-6 border-l-4 border-primary shadow-2xl">
+<div>
+<div class="flex justify-between font-label text-[10px] uppercase tracking-widest mb-2">
+<span>Buffer Capacity</span>
+<span class="text-primary">82% Used</span>
+</div>
+<div class="h-4 bg-surface-container-lowest relative overflow-hidden">
+<div class="absolute inset-0 bg-primary-container/20"></div>
+<div class="h-full bg-primary-container shadow-[0_0_10px_rgba(255,179,0,0.5)] transition-all duration-500" style="width: 82%"></div>
+<!-- Meter Marks -->
+<div class="absolute inset-0 flex justify-between px-1 pointer-events-none opacity-30">
+<div class="w-px h-full bg-surface-container-highest"></div>
+<div class="w-px h-full bg-surface-container-highest"></div>
+<div class="w-px h-full bg-surface-container-highest"></div>
+<div class="w-px h-full bg-surface-container-highest"></div>
+</div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-label text-[10px] uppercase tracking-widest mb-2">
+<span>Archive Integrity</span>
+<span class="text-tertiary-container">99.8% Nominal</span>
+</div>
+<div class="h-4 bg-surface-container-lowest relative overflow-hidden">
+<div class="absolute inset-0 bg-tertiary-container/20"></div>
+<div class="h-full bg-tertiary-container shadow-[0_0_10px_rgba(0,210,254,0.5)] transition-all duration-500" style="width: 99.8%"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Search & Filter Bar (Machine Controls) -->
+<div class="flex flex-col md:flex-row gap-4 mb-10 items-center justify-between bg-surface-container p-2 rounded-sm border border-outline-variant/10">
+<div class="relative w-full md:w-96 group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm" data-icon="search">search</span>
+<input class="w-full bg-surface-container-lowest border-none pl-10 py-2 text-xs font-label tracking-widest focus:ring-1 focus:ring-primary text-on-surface" placeholder="FILTER BY CATALOG ID..." type="text"/>
+</div>
+<div class="flex gap-2 w-full md:w-auto">
+<button class="flex-1 md:flex-none bg-surface-container-highest px-4 py-2 text-[10px] font-label uppercase tracking-widest text-on-surface hover:bg-surface-variant transition-colors border-b-2 border-primary/40 active:translate-y-px">
+                    Sort: Chronological
+                </button>
+<button class="flex-1 md:flex-none bg-surface-container-highest px-4 py-2 text-[10px] font-label uppercase tracking-widest text-on-surface hover:bg-surface-variant transition-colors border-b-2 border-primary/40 active:translate-y-px">
+                    Tag: Master
+                </button>
+<button class="md:w-10 w-full h-10 bg-primary-container flex items-center justify-center text-on-primary-container active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+</div>
+</div>
+<!-- The Archive Grid (Tape Boxes) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+<!-- Tape Box Card 1 -->
+<div class="group relative bg-surface-container-high aspect-[4/5] flex flex-col border-l-[12px] border-primary overflow-hidden shadow-xl hover:shadow-primary/5 transition-all cursor-pointer">
+<div class="p-4 flex flex-col h-full">
+<div class="flex justify-between items-start mb-4">
+<span class="font-label text-[9px] uppercase tracking-tighter text-on-surface-variant opacity-50">Catalog.No: 822-01</span>
+<span class="material-symbols-outlined text-primary text-lg" data-icon="more_vert">more_vert</span>
+</div>
+<div class="mb-4">
+<div class="w-full h-32 bg-surface-container-lowest mb-4 grayscale group-hover:grayscale-0 transition-all duration-500 overflow-hidden">
+<img class="w-full h-full object-cover opacity-60 group-hover:opacity-100 scale-110 group-hover:scale-100 transition-transform duration-700" data-alt="professional recording studio monitor speakers and mixing console with warm amber glowing lights and dark shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqTnvGbUK8EZwoVPslHxygnXXVxtBvd-rvLhgegp2BNCCTgD-91KQimAxLcn5QLs8hSFLhfKXFn5WzxdNxayu7ygWPwNDEuqXltASXwqAUbjnNmFM71UpI41WYd4jugKze9VDOJcatfdK9Nnsqsq1W1naPgWdWx2_KPKwYL4OpGU3B_dtXCTxhE_oGhZnZa68G6R-phtv4ngBvU42o3IA_lRJgWO9gYNm_BNC3i00Pn7JjchSAZag0WRUWLiOjTx1USNNqPkfD3w"/>
+</div>
+<h3 class="font-headline text-xl font-bold text-on-surface leading-tight uppercase mb-1">Analog_Drums_v1</h3>
+<p class="font-label text-[10px] uppercase text-primary tracking-widest">Technician: Miller, J.</p>
+</div>
+<div class="mt-auto space-y-2">
+<div class="flex justify-between font-label text-[9px] uppercase tracking-widest border-b border-outline-variant/20 pb-1">
+<span class="text-on-surface-variant">Format</span>
+<span class="text-on-surface">WAV 96KHZ/24BIT</span>
+</div>
+<div class="flex justify-between font-label text-[9px] uppercase tracking-widest border-b border-outline-variant/20 pb-1">
+<span class="text-on-surface-variant">Duration</span>
+<span class="text-on-surface">12:44:02</span>
+</div>
+<div class="flex justify-between font-label text-[9px] uppercase tracking-widest">
+<span class="text-on-surface-variant">Created</span>
+<span class="text-on-surface">AUG 12, 2024</span>
+</div>
+</div>
+</div>
+<div class="absolute bottom-0 right-0 p-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-primary" data-icon="download" data-weight="fill">download</span>
+</div>
+</div>
+<!-- Tape Box Card 2 -->
+<div class="group relative bg-surface-container-high aspect-[4/5] flex flex-col border-l-[12px] border-tertiary-container overflow-hidden shadow-xl hover:shadow-tertiary-container/5 transition-all cursor-pointer">
+<div class="p-4 flex flex-col h-full">
+<div class="flex justify-between items-start mb-4">
+<span class="font-label text-[9px] uppercase tracking-tighter text-on-surface-variant opacity-50">Catalog.No: 822-02</span>
+<span class="material-symbols-outlined text-tertiary-container text-lg" data-icon="more_vert">more_vert</span>
+</div>
+<div class="mb-4">
+<div class="w-full h-32 bg-surface-container-lowest mb-4 grayscale group-hover:grayscale-0 transition-all duration-500 overflow-hidden">
+<img class="w-full h-full object-cover opacity-60 group-hover:opacity-100 scale-110 group-hover:scale-100 transition-transform duration-700" data-alt="close-up of vacuum tubes in a vintage guitar amplifier glowing with warm orange filament light in a dark room" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAC7KSq-8w7jkKcRi6FBA6KWL3GQuygNcXdy5nKQZ7-wI_s6QCyhNdqYwy9--1jC2NdGzQIGjfzHCEHVpL8afSlYKFuw4BMzo1jDcS-7OpTAdhOWWCj8oF-YveRSH0SXPDme_LWM7oC8EHfvgYat1bxZ2iCgOQ_2mAl8-WsM8Fx7w7eFTPutcH7YtUxEABXIe6VykGEg8g3uWiK57UTesH0V21a4da7urTPmnsFE6nS18PFzINEpMQONm24I2H1n19OaCBQ5RLRzg"/>
+</div>
+<h3 class="font-headline text-xl font-bold text-on-surface leading-tight uppercase mb-1">Subharmonic_Bass</h3>
+<p class="font-label text-[10px] uppercase text-tertiary-container tracking-widest">Technician: Sato, K.</p>
+</div>
+<div class="mt-auto space-y-2">
+<div class="flex justify-between font-label text-[9px] uppercase tracking-widest border-b border-outline-variant/20 pb-1">
+<span class="text-on-surface-variant">Format</span>
+<span class="text-on-surface">FLAC 192KHZ</span>
+</div>
+<div class="flex justify-between font-label text-[9px] uppercase tracking-widest border-b border-outline-variant/20 pb-1">
+<span class="text-on-surface-variant">Duration</span>
+<span class="text-on-surface">04:15:30</span>
+</div>
+<div class="flex justify-between font-label text-[9px] uppercase tracking-widest">
+<span class="text-on-surface-variant">Created</span>
+<span class="text-on-surface">AUG 14, 2024</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Tape Box Card 3 (Empty Slot Feel) -->
+<div class="group relative bg-surface-container/30 aspect-[4/5] flex flex-col border border-dashed border-outline-variant/30 overflow-hidden hover:bg-surface-container-low transition-all cursor-pointer">
+<div class="flex flex-col items-center justify-center h-full gap-4 text-outline">
+<span class="material-symbols-outlined text-4xl" data-icon="cloud_upload">cloud_upload</span>
+<span class="font-label text-xs uppercase tracking-[0.3em]">Initialize New Session</span>
+</div>
+</div>
+<!-- Tape Box Card 4 -->
+<div class="group relative bg-surface-container-high aspect-[4/5] flex flex-col border-l-[12px] border-error overflow-hidden shadow-xl hover:shadow-error/5 transition-all cursor-pointer">
+<div class="p-4 flex flex-col h-full">
+<div class="flex justify-between items-start mb-4">
+<span class="font-label text-[9px] uppercase tracking-tighter text-on-surface-variant opacity-50">Catalog.No: 819-99</span>
+<span class="material-symbols-outlined text-error text-lg" data-icon="warning">warning</span>
+</div>
+<div class="mb-4">
+<div class="w-full h-32 bg-surface-container-lowest mb-4 grayscale group-hover:grayscale-0 transition-all duration-500 overflow-hidden">
+<img class="w-full h-full object-cover opacity-40 group-hover:opacity-80 scale-110 group-hover:scale-100 transition-transform duration-700" data-alt="abstract macro photography of old magnetic tape reels with textured metallic surfaces and cinematic dark mood" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3OF1hEHnq42H-Y7-rKxR6KqOSf_ydREt4KtCw6PU4e0zvUTLRCQKyeUR_6DQsLKlW4-UzOc17DhDbjV4fIFz2POQxf-Zx01e5KiYnrFl4wG774Wdbf8XrPnQFl-VrAw9b0QWKXr6zBxBgXRIcgPRacVjUiFc5X_7_-QCPbZ4HEf9mqbYsVSLtVsTMxL9sXI9F7Lrdd7J1DTsvXhslQK9yB49s--mz6JCNjF6ZWqZV42AoL3w38LzacvgJMkRXVyfpV8C94PphRQ"/>
+</div>
+<h3 class="font-headline text-xl font-bold text-on-surface leading-tight uppercase mb-1">Corrupt_Header_Fix</h3>
+<p class="font-label text-[10px] uppercase text-error tracking-widest">Technician: RECOVERY_BOT</p>
+</div>
+<div class="mt-auto space-y-2">
+<div class="flex justify-between font-label text-[9px] uppercase tracking-widest border-b border-outline-variant/20 pb-1">
+<span class="text-on-surface-variant">Format</span>
+<span class="text-on-surface">RAW_LPCM</span>
+</div>
+<div class="flex justify-between font-label text-[9px] uppercase tracking-widest border-b border-outline-variant/20 pb-1">
+<span class="text-on-surface-variant">Recovery</span>
+<span class="text-on-surface">78% Complete</span>
+</div>
+<div class="flex justify-between font-label text-[9px] uppercase tracking-widest">
+<span class="text-on-surface-variant">Status</span>
+<span class="text-error">Flagged</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- VU Meter Overlay (Bottom Right Context) -->
+<div class="fixed bottom-24 right-6 hidden xl:block w-48 bg-surface-container p-4 border-t-4 border-tertiary-container shadow-2xl">
+<div class="flex justify-between font-label text-[9px] uppercase mb-4 text-on-surface-variant">
+<span>Signal Strength</span>
+<span class="text-tertiary-container">Active</span>
+</div>
+<div class="flex gap-1 h-12 items-end">
+<div class="flex-1 bg-tertiary-container/40 h-[20%]"></div>
+<div class="flex-1 bg-tertiary-container/40 h-[40%]"></div>
+<div class="flex-1 bg-tertiary-container h-[65%] shadow-[0_0_8px_rgba(0,210,254,0.4)]"></div>
+<div class="flex-1 bg-tertiary-container h-[90%] shadow-[0_0_8px_rgba(0,210,254,0.4)]"></div>
+<div class="flex-1 bg-tertiary-container h-[75%] shadow-[0_0_8px_rgba(0,210,254,0.4)]"></div>
+<div class="flex-1 bg-primary-container h-[40%] opacity-50"></div>
+<div class="flex-1 bg-primary-container h-[20%] opacity-30"></div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="bg-[#131313] border-t border-[#FFB300]/10 fixed bottom-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-2 shadow-2xl">
+<div class="flex flex-col items-center justify-center text-gray-500 p-2 hover:text-[#ffd79b] transition-colors active:scale-95 duration-100">
+<span class="material-symbols-outlined mb-1" data-icon="waves">waves</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase font-bold tracking-widest">Extract</span>
+</div>
+<div class="flex flex-col items-center justify-center text-gray-500 p-2 hover:text-[#ffd79b] transition-colors active:scale-95 duration-100">
+<span class="material-symbols-outlined mb-1" data-icon="tune">tune</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase font-bold tracking-widest">Mixer</span>
+</div>
+<div class="flex flex-col items-center justify-center text-gray-500 p-2 hover:text-[#ffd79b] transition-colors active:scale-95 duration-100">
+<span class="material-symbols-outlined mb-1" data-icon="drum_set">set_meal</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase font-bold tracking-widest">Drums</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#FFB300] bg-[#1c1c1c] rounded-sm p-2 shadow-[inset_0_0_10px_rgba(255,179,0,0.1)] active:scale-95 duration-100">
+<span class="material-symbols-outlined mb-1" data-icon="library_music">library_music</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase font-bold tracking-widest">Library</span>
+</div>
+</nav>
+</body></html>
