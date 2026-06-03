@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline-variant": "#514532",
+                    "surface-container-lowest": "#0e0e0e",
+                    "inverse-on-surface": "#313030",
+                    "surface-variant": "#353534",
+                    "error-container": "#93000a",
+                    "primary": "#ffd79b",
+                    "secondary-fixed": "#e2e2e2",
+                    "on-tertiary-container": "#00566a",
+                    "on-secondary-container": "#b5b5b5",
+                    "tertiary-fixed": "#b5ebff",
+                    "tertiary-container": "#00d2fe",
+                    "surface-container-low": "#1c1b1b",
+                    "surface-container-highest": "#353534",
+                    "on-secondary-fixed": "#1a1c1c",
+                    "on-primary": "#432c00",
+                    "primary-fixed": "#ffdeac",
+                    "on-primary-fixed": "#281900",
+                    "on-secondary-fixed-variant": "#454747",
+                    "surface-tint": "#ffba38",
+                    "on-error": "#690005",
+                    "on-surface": "#e5e2e1",
+                    "on-surface-variant": "#d6c4ac",
+                    "surface-container-high": "#2a2a2a",
+                    "on-primary-container": "#6b4900",
+                    "error": "#ffb4ab",
+                    "on-tertiary-fixed-variant": "#004e60",
+                    "on-tertiary": "#003543",
+                    "on-error-container": "#ffdad6",
+                    "surface-container": "#201f1f",
+                    "secondary": "#c6c6c6",
+                    "on-primary-fixed-variant": "#604100",
+                    "secondary-fixed-dim": "#c6c6c6",
+                    "secondary-container": "#454747",
+                    "inverse-primary": "#7e5700",
+                    "surface": "#131313",
+                    "tertiary": "#a4e7ff",
+                    "surface-bright": "#393939",
+                    "surface-dim": "#131313",
+                    "on-background": "#e5e2e1",
+                    "tertiary-fixed-dim": "#43d6ff",
+                    "outline": "#9e8e78",
+                    "on-tertiary-fixed": "#001f28",
+                    "on-secondary": "#2f3131",
+                    "inverse-surface": "#e5e2e1",
+                    "primary-fixed-dim": "#ffba38",
+                    "primary-container": "#ffb300",
+                    "background": "#131313"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Space Grotesk"],
+                    "body": ["Inter"],
+                    "label": ["Space Grotesk"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .knurled-handle {
+            background: linear-gradient(145deg, #444, #222);
+            box-shadow: inset 0 1px 1px rgba(255,255,255,0.1), 0 4px 6px rgba(0,0,0,0.4);
+            position: relative;
+        }
+        .knurled-handle::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: radial-gradient(#ffffff22 1px, transparent 1px);
+            background-size: 3px 3px;
+        }
+        .v-slider-track {
+            background: linear-gradient(to right, #0a0a0a, #1a1a1a, #0a0a0a);
+        }
+        .oscilloscope-grid {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(255,179,0,0.05) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255,179,0,0.05) 1px, transparent 1px);
+        }
+        .glow-amber {
+            filter: drop-shadow(0 0 4px #ffb300);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center w-full px-6 py-4 bg-[#131313] shadow-[inset_0_1px_0_0_rgba(255,215,155,0.1)]">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#FFB300] text-2xl" data-icon="settings_input_component">settings_input_component</span>
+<h1 class="text-2xl font-bold tracking-tighter text-[#FFB300] font-['Space_Grotesk'] uppercase tracking-[0.05em]">PRECISION_CONSOLE</h1>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex gap-6 mr-6">
+<button class="text-[#FFB300] font-label text-sm font-bold tracking-widest uppercase">Console</button>
+<button class="text-gray-500 font-label text-sm font-bold tracking-widest uppercase hover:text-[#ffd79b] transition-colors">Analyze</button>
+<button class="text-gray-500 font-label text-sm font-bold tracking-widest uppercase hover:text-[#ffd79b] transition-colors">Export</button>
+</div>
+<div class="w-10 h-10 rounded-none bg-surface-container-highest flex items-center justify-center border border-outline-variant/30">
+<span class="material-symbols-outlined text-primary-fixed" data-icon="person">person</span>
+</div>
+</div>
+</header>
+<main class="max-w-[1400px] mx-auto p-6 space-y-6">
+<!-- Oscilloscope / VU Section -->
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<div class="lg:col-span-2 surface-container-high rounded-lg p-1 bg-[#1a1a1a] shadow-inner relative overflow-hidden group">
+<div class="absolute top-4 left-6 z-10 flex items-center gap-4">
+<span class="text-primary font-label text-[10px] uppercase font-extrabold tracking-[0.2em] bg-surface-container-lowest px-2 py-1 rounded-sm border border-outline-variant/20">SIGNAL_SCOPE_V.04</span>
+<div class="flex gap-1">
+<div class="w-2 h-2 rounded-full bg-primary glow-amber"></div>
+<div class="w-2 h-2 rounded-full bg-primary/20"></div>
+</div>
+</div>
+<div class="h-[300px] w-full oscilloscope-grid relative flex items-center justify-center bg-surface-container-lowest rounded">
+<!-- Oscilloscope Waveform Mockup -->
+<svg class="w-full h-full absolute inset-0 pointer-events-none opacity-80" viewbox="0 0 800 300">
+<path class="opacity-40" d="M0 150 Q 50 50, 100 150 T 200 150 T 300 150 T 400 150 T 500 150 T 600 150 T 700 150 T 800 150" fill="none" stroke="#FFB300" stroke-width="2"></path>
+<path class="opacity-100" d="M0 150 Q 25 100, 50 150 T 100 150 T 150 150 T 200 150 T 250 150 T 300 150 T 350 150 T 400 150 T 450 150 T 500 150 T 550 150 T 600 150 T 650 150 T 700 150 T 750 150 T 800 150" fill="none" stroke="#FFB300" stroke-width="1.5"></path>
+</svg>
+</div>
+</div>
+<!-- VU Master Meters -->
+<div class="surface-container-high rounded-lg p-6 flex flex-col justify-between border-l-4 border-primary">
+<div>
+<h2 class="font-label text-xs font-bold uppercase tracking-widest text-primary mb-6">Master Output</h2>
+<div class="space-y-4">
+<!-- Left Channel -->
+<div class="space-y-1">
+<div class="flex justify-between text-[10px] font-label text-outline uppercase tracking-tighter">
+<span>-inf</span><span>-24</span><span>-12</span><span>-6</span><span>0</span><span class="text-error">CLIP</span>
+</div>
+<div class="h-4 w-full bg-surface-container-lowest rounded-sm overflow-hidden flex gap-0.5 p-0.5">
+<div class="h-full w-[10%] bg-tertiary-container/40"></div>
+<div class="h-full w-[10%] bg-tertiary-container/60"></div>
+<div class="h-full w-[10%] bg-tertiary-container/80"></div>
+<div class="h-full w-[10%] bg-tertiary-container"></div>
+<div class="h-full w-[10%] bg-tertiary-container"></div>
+<div class="h-full w-[10%] bg-primary-container"></div>
+<div class="h-full w-[10%] bg-primary-container shadow-[0_0_8px_#ffb300]"></div>
+<div class="h-full w-[5%] bg-surface-container-low"></div>
+<div class="h-full w-[5%] bg-surface-container-low"></div>
+<div class="h-full w-[5%] bg-surface-container-low"></div>
+</div>
+</div>
+<!-- Right Channel -->
+<div class="space-y-1">
+<div class="h-4 w-full bg-surface-container-lowest rounded-sm overflow-hidden flex gap-0.5 p-0.5">
+<div class="h-full w-[10%] bg-tertiary-container/40"></div>
+<div class="h-full w-[10%] bg-tertiary-container/60"></div>
+<div class="h-full w-[10%] bg-tertiary-container/80"></div>
+<div class="h-full w-[10%] bg-tertiary-container"></div>
+<div class="h-full w-[10%] bg-tertiary-container"></div>
+<div class="h-full w-[8%] bg-primary-container"></div>
+<div class="h-full w-[7%] bg-surface-container-low"></div>
+<div class="h-full w-[5%] bg-surface-container-low"></div>
+<div class="h-full w-[5%] bg-surface-container-low"></div>
+<div class="h-full w-[5%] bg-surface-container-low"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="flex items-end justify-between">
+<div class="space-y-2">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-error animate-pulse shadow-[0_0_8px_red]"></div>
+<span class="text-[10px] font-label font-bold uppercase text-on-surface">Live Processing</span>
+</div>
+<div class="text-2xl font-headline font-light text-on-surface">48.0 <span class="text-primary text-sm font-bold">kHz</span></div>
+</div>
+<div class="flex flex-col items-end">
+<span class="text-[10px] font-label text-outline uppercase">Buffer</span>
+<span class="text-xl font-headline font-bold text-on-surface">128ms</span>
+</div>
+</div>
+</div>
+</section>
+<!-- STEM CONSOLE - Vertical Mixer Section -->
+<section class="surface-container rounded-none border border-outline-variant/20 shadow-2xl relative overflow-hidden">
+<div class="absolute top-0 right-0 p-2 opacity-10 pointer-events-none">
+<span class="text-6xl font-headline font-black uppercase">ANALOG_SOUL</span>
+</div>
+<div class="p-4 border-b border-outline-variant/20 flex justify-between items-center bg-surface-container-high">
+<h2 class="font-headline font-extrabold text-lg tracking-widest text-on-surface-variant">STEM CONSOLE // RACK_01</h2>
+<div class="flex gap-4">
+<button class="bg-surface-container-lowest px-4 py-1 font-label text-[10px] font-bold uppercase border border-primary/20 text-primary hover:bg-primary/10 transition-colors">Snapshot</button>
+<button class="bg-surface-container-lowest px-4 py-1 font-label text-[10px] font-bold uppercase border border-outline-variant/20 text-on-surface-variant hover:bg-surface-container-low transition-colors">Bypass All</button>
+</div>
+</div>
+<div class="flex overflow-x-auto pb-6">
+<!-- Mixer Channel 1 -->
+<div class="flex-shrink-0 w-[120px] border-r border-outline-variant/10 bg-surface-container-low flex flex-col items-center py-6 group hover:bg-surface-container transition-colors">
+<div class="mb-6 px-2 w-full">
+<div class="bg-black/40 text-[10px] font-label py-1 text-center font-bold text-tertiary border-b border-tertiary/20 uppercase">Vocal_Main</div>
+</div>
+<!-- VU Indicator small -->
+<div class="h-32 w-1.5 bg-surface-container-lowest rounded-full mb-6 relative overflow-hidden flex flex-col justify-end">
+<div class="h-[75%] w-full bg-gradient-to-t from-tertiary-container to-primary-container shadow-[0_0_10px_rgba(0,210,254,0.3)]"></div>
+</div>
+<!-- Fader -->
+<div class="h-64 w-8 relative flex flex-col items-center">
+<div class="h-full w-2 v-slider-track rounded-full border border-black/50 shadow-inner"></div>
+<!-- Slider Handle -->
+<div class="absolute top-[20%] w-10 h-14 knurled-handle rounded-sm border-y border-white/10 flex items-center justify-center cursor-pointer active:translate-y-px transition-all">
+<div class="w-full h-[1px] bg-primary/40"></div>
+</div>
+<!-- Fader markings -->
+<div class="absolute -right-6 top-0 bottom-0 flex flex-col justify-between text-[8px] font-label text-outline/50 pointer-events-none py-2">
+<span>+12</span><span>+6</span><span>0</span><span>-6</span><span>-12</span><span>-24</span><span>-inf</span>
+</div>
+</div>
+<div class="mt-8 flex gap-2">
+<button class="w-8 h-8 rounded-none bg-surface-container-highest border border-outline-variant/30 text-[10px] font-bold text-error active:bg-error active:text-on-error transition-all">M</button>
+<button class="w-8 h-8 rounded-none bg-surface-container-highest border border-outline-variant/30 text-[10px] font-bold text-tertiary active:bg-tertiary active:text-on-tertiary transition-all">S</button>
+</div>
+</div>
+<!-- Mixer Channel 2 -->
+<div class="flex-shrink-0 w-[120px] border-r border-outline-variant/10 bg-surface-container-low flex flex-col items-center py-6 group hover:bg-surface-container transition-colors">
+<div class="mb-6 px-2 w-full">
+<div class="bg-black/40 text-[10px] font-label py-1 text-center font-bold text-tertiary border-b border-tertiary/20 uppercase">Percussion</div>
+</div>
+<div class="h-32 w-1.5 bg-surface-container-lowest rounded-full mb-6 relative overflow-hidden flex flex-col justify-end">
+<div class="h-[45%] w-full bg-gradient-to-t from-tertiary-container to-primary-container"></div>
+</div>
+<div class="h-64 w-8 relative flex flex-col items-center">
+<div class="h-full w-2 v-slider-track rounded-full border border-black/50 shadow-inner"></div>
+<div class="absolute top-[45%] w-10 h-14 knurled-handle rounded-sm border-y border-white/10 flex items-center justify-center cursor-pointer">
+<div class="w-full h-[1px] bg-primary/40"></div>
+</div>
+<div class="absolute -right-6 top-0 bottom-0 flex flex-col justify-between text-[8px] font-label text-outline/50 py-2">
+<span>+12</span><span>+6</span><span>0</span><span>-6</span><span>-12</span><span>-24</span><span>-inf</span>
+</div>
+</div>
+<div class="mt-8 flex gap-2">
+<button class="w-8 h-8 rounded-none bg-surface-container-highest border border-outline-variant/30 text-[10px] font-bold text-error active:bg-error active:text-on-error">M</button>
+<button class="w-8 h-8 rounded-none bg-surface-container-highest border border-outline-variant/30 text-[10px] font-bold text-tertiary">S</button>
+</div>
+</div>
+<!-- Mixer Channel 3 -->
+<div class="flex-shrink-0 w-[120px] border-r border-outline-variant/10 bg-surface-container-low flex flex-col items-center py-6 group hover:bg-surface-container transition-colors">
+<div class="mb-6 px-2 w-full">
+<div class="bg-black/40 text-[10px] font-label py-1 text-center font-bold text-tertiary border-b border-tertiary/20 uppercase">Lead_Synth</div>
+</div>
+<div class="h-32 w-1.5 bg-surface-container-lowest rounded-full mb-6 relative overflow-hidden flex flex-col justify-end">
+<div class="h-[60%] w-full bg-gradient-to-t from-tertiary-container to-primary-container"></div>
+</div>
+<div class="h-64 w-8 relative flex flex-col items-center">
+<div class="h-full w-2 v-slider-track rounded-full border border-black/50 shadow-inner"></div>
+<div class="absolute top-[30%] w-10 h-14 knurled-handle rounded-sm border-y border-white/10 flex items-center justify-center cursor-pointer">
+<div class="w-full h-[1px] bg-primary/40"></div>
+</div>
+<div class="absolute -right-6 top-0 bottom-0 flex flex-col justify-between text-[8px] font-label text-outline/50 py-2">
+<span>+12</span><span>+6</span><span>0</span><span>-6</span><span>-12</span><span>-24</span><span>-inf</span>
+</div>
+</div>
+<div class="mt-8 flex gap-2">
+<button class="w-8 h-8 rounded-none bg-surface-container-highest border border-outline-variant/30 text-[10px] font-bold text-error active:bg-error active:text-on-error">M</button>
+<button class="w-8 h-8 rounded-none bg-surface-container-highest border border-outline-variant/30 text-[10px] font-bold text-tertiary">S</button>
+</div>
+</div>
+<!-- Mixer Channel 4 -->
+<div class="flex-shrink-0 w-[120px] border-r border-outline-variant/10 bg-surface-container-low flex flex-col items-center py-6 group hover:bg-surface-container transition-colors">
+<div class="mb-6 px-2 w-full">
+<div class="bg-black/40 text-[10px] font-label py-1 text-center font-bold text-tertiary border-b border-tertiary/20 uppercase">FX_Return</div>
+</div>
+<div class="h-32 w-1.5 bg-surface-container-lowest rounded-full mb-6 relative overflow-hidden flex flex-col justify-end">
+<div class="h-[20%] w-full bg-gradient-to-t from-tertiary-container to-primary-container"></div>
+</div>
+<div class="h-64 w-8 relative flex flex-col items-center">
+<div class="h-full w-2 v-slider-track rounded-full border border-black/50 shadow-inner"></div>
+<div class="absolute top-[70%] w-10 h-14 knurled-handle rounded-sm border-y border-white/10 flex items-center justify-center cursor-pointer">
+<div class="w-full h-[1px] bg-primary/40"></div>
+</div>
+<div class="absolute -right-6 top-0 bottom-0 flex flex-col justify-between text-[8px] font-label text-outline/50 py-2">
+<span>+12</span><span>+6</span><span>0</span><span>-6</span><span>-12</span><span>-24</span><span>-inf</span>
+</div>
+</div>
+<div class="mt-8 flex gap-2">
+<button class="w-8 h-8 rounded-none bg-surface-container-highest border border-outline-variant/30 text-[10px] font-bold text-error active:bg-error active:text-on-error">M</button>
+<button class="w-8 h-8 rounded-none bg-surface-container-highest border border-outline-variant/30 text-[10px] font-bold text-tertiary">S</button>
+</div>
+</div>
+<!-- Empty Filler Channels to complete rack look -->
+<div class="flex-grow bg-[#151515] flex items-center justify-center border-l border-outline-variant/10">
+<div class="text-surface-container-highest font-headline font-black text-4xl transform rotate-90 opacity-20 whitespace-nowrap">EXT_MODULE_INPUT</div>
+</div>
+</div>
+</section>
+<!-- Precision Controls Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- EQ Module -->
+<div class="surface-container-high p-6 rounded-lg border-t-2 border-tertiary/40">
+<div class="flex justify-between items-center mb-6">
+<span class="text-[10px] font-label font-black text-tertiary uppercase tracking-widest">EQ_PARAMETRIC</span>
+<div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_6px_#00d2fe]"></div>
+</div>
+<div class="grid grid-cols-2 gap-6">
+<div class="flex flex-col items-center gap-2">
+<div class="w-12 h-12 rounded-full bg-surface-container-lowest border-2 border-outline-variant relative">
+<div class="absolute top-1 left-1/2 -translate-x-1/2 w-1 h-3 bg-primary rounded-full"></div>
+</div>
+<span class="text-[9px] font-label font-bold uppercase text-outline">Low Cut</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-12 h-12 rounded-full bg-surface-container-lowest border-2 border-outline-variant relative rotate-45">
+<div class="absolute top-1 left-1/2 -translate-x-1/2 w-1 h-3 bg-primary rounded-full"></div>
+</div>
+<span class="text-[9px] font-label font-bold uppercase text-outline">High Pass</span>
+</div>
+</div>
+</div>
+<!-- Dynamics Module -->
+<div class="surface-container-high p-6 rounded-lg border-t-2 border-error/40">
+<div class="flex justify-between items-center mb-6">
+<span class="text-[10px] font-label font-black text-error uppercase tracking-widest">COMP_VCA</span>
+<div class="w-2 h-2 rounded-full bg-error"></div>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-center">
+<span class="text-[9px] font-label font-bold uppercase text-outline">Threshold</span>
+<span class="text-[9px] font-label font-bold text-on-surface">-18 dB</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-lowest rounded-full overflow-hidden">
+<div class="h-full w-[70%] bg-error"></div>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-[9px] font-label font-bold uppercase text-outline">Ratio</span>
+<span class="text-[9px] font-label font-bold text-on-surface">4:1</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-lowest rounded-full overflow-hidden">
+<div class="h-full w-[40%] bg-error"></div>
+</div>
+</div>
+</div>
+<!-- Image/Status Panel -->
+<div class="surface-container-high rounded-lg overflow-hidden relative group">
+<img class="w-full h-full object-cover opacity-40 group-hover:scale-105 transition-transform duration-700" data-alt="close-up of a professional recording studio mixing console with illuminated buttons and faders in a dark environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNgC509P-EpB5PZqCmZ7zJhtc7So2z_2mB1EhBuqJCSHMPAHtmLIUPiYOuymKCdZ8bzeqaEBvAY0fEhZijn7g4qem6TucNbulI62_DNJXL5CDtSG636KinXmBtThyAaTvjC0RhvxrXPTohX09cNP5JgtZEoEEuqlxs5qC8jbGPKqHurYzDWayhEYHqPb2vrtqSS9OFVWP9aF7rdhiuzPIihh1TpjWZ_JL4YPwXS49LiKl2bI1_z7Ay4YSQutqvMPPFJ_WlnOY8VQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent p-6 flex flex-col justify-end">
+<span class="text-primary font-headline font-black text-xl leading-none">STUDIO_A</span>
+<span class="text-[10px] font-label text-outline uppercase">Active Session: Midnight_Vibe_Rmx</span>
+</div>
+</div>
+<!-- Export Module -->
+<div class="surface-container-high p-6 rounded-lg border border-primary/20 flex flex-col justify-between">
+<div>
+<h3 class="font-label text-xs font-bold uppercase tracking-widest text-primary mb-2">Ready to Render</h3>
+<p class="text-on-surface-variant text-[11px] leading-relaxed">System calibrated for 24-bit/96kHz lossless export. Latency compensation enabled.</p>
+</div>
+<button class="w-full bg-primary-container text-on-primary py-3 font-headline font-extrabold uppercase tracking-widest text-sm hover:bg-primary transition-colors active:scale-95 duration-100 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="ios_share">ios_share</span>
+                    Export Master
+                </button>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-2 bg-[#131313] border-t border-[#FFB300]/10 shadow-2xl">
+<a class="flex flex-col items-center justify-center text-[#FFB300] bg-[#1c1c1c] rounded-sm p-2 shadow-[inset_0_0_10px_rgba(255,179,0,0.1)] transition-transform duration-100 active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="waves">waves</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase font-bold tracking-widest mt-1">Extract</span>
+</a>
+<a class="flex flex-col items-center justify-center text-gray-500 p-2 hover:text-[#ffd79b] transition-transform duration-100 active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="tune">tune</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase font-bold tracking-widest mt-1">Mixer</span>
+</a>
+<a class="flex flex-col items-center justify-center text-gray-500 p-2 hover:text-[#ffd79b] transition-transform duration-100 active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="drum_set">set_meal</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase font-bold tracking-widest mt-1">Drums</span>
+</a>
+<a class="flex flex-col items-center justify-center text-gray-500 p-2 hover:text-[#ffd79b] transition-transform duration-100 active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="library_music">library_music</span>
+<span class="font-['Space_Grotesk'] text-[10px] uppercase font-bold tracking-widest mt-1">Library</span>
+</a>
+</nav>
+</body></html>

@@ -16,5 +16,5 @@ jobs:
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
-          git remote add hf https://RyanrealAF:$HF_TOKEN@huggingface.co/spaces/RyanrealAF/midi
+          npm run build && git remote add hf https://RyanrealAF:$HF_TOKEN@huggingface.co/spaces/RyanrealAF/midi
           git push --force hf main
